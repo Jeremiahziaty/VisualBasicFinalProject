@@ -65,7 +65,7 @@ Partial Class Main
         'AddNewPatient
         '
         Me.AddNewPatient.Name = "AddNewPatient"
-        Me.AddNewPatient.Size = New System.Drawing.Size(136, 22)
+        Me.AddNewPatient.Size = New System.Drawing.Size(152, 22)
         Me.AddNewPatient.Text = "Add Patient"
         '
         'PatientToolStripMenuItem
@@ -78,13 +78,13 @@ Partial Class Main
         'tlsListAll
         '
         Me.tlsListAll.Name = "tlsListAll"
-        Me.tlsListAll.Size = New System.Drawing.Size(152, 22)
+        Me.tlsListAll.Size = New System.Drawing.Size(137, 22)
         Me.tlsListAll.Text = "List all"
         '
         'tlsFindPatient
         '
         Me.tlsFindPatient.Name = "tlsFindPatient"
-        Me.tlsFindPatient.Size = New System.Drawing.Size(152, 22)
+        Me.tlsFindPatient.Size = New System.Drawing.Size(137, 22)
         Me.tlsFindPatient.Text = "Find patient"
         '
         'Main

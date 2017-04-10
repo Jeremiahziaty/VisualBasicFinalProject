@@ -7,7 +7,7 @@
         ElseIf IsNumeric(txtLastName.Text) Then
             errProvider.SetError(txtLastName, "Name cannot be a number")
         ElseIf IsNumeric(txtBirthday.Text) Then
-            errProvider.SetError(txtBirthday, "Please enter numeric quantity")
+            errProvider.SetError(txtBirthday, "Please enter a Date")
         ElseIf txtBirthday.Text.Length = 0 Then
             errProvider.SetError(txtBirthday, "birthday cannot be blank")
         Else

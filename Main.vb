@@ -6,4 +6,8 @@
     Private Sub tlsFindPatient_Click(sender As Object, e As EventArgs) Handles tlsFindPatient.Click
         FindPatient.ShowDialog()
     End Sub
+
+    Private Sub AddNewPatient_Click(sender As Object, e As EventArgs) Handles AddNewPatient.Click
+        Registration.ShowDialog()
+    End Sub
 End Class

@@ -46,10 +46,12 @@ Partial Class FindPatient
         Me.LastNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PatientIdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PatientsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.errProvider = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.MenuStrip1.SuspendLayout()
         CType(Me.dgvPatients, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LilypadGardensDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PatientsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.errProvider, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnGo
@@ -225,6 +227,10 @@ Partial Class FindPatient
         Me.PatientsBindingSource.DataMember = "Patients"
         Me.PatientsBindingSource.DataSource = Me.LilypadGardensDataSet
         '
+        'errProvider
+        '
+        Me.errProvider.ContainerControl = Me
+        '
         'FindPatient
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -244,6 +250,7 @@ Partial Class FindPatient
         CType(Me.dgvPatients, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LilypadGardensDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PatientsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.errProvider, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -272,4 +279,5 @@ Partial Class FindPatient
     Friend WithEvents DateVisitedDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents FamilyHistoryDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents PatientsBindingSource As BindingSource
+    Friend WithEvents errProvider As ErrorProvider
 End Class

@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Continuing
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,8 +20,9 @@ Partial Class Continuing
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.gbSymptoms = New System.Windows.Forms.GroupBox()
         Me.txtOther = New System.Windows.Forms.TextBox()
         Me.chkOther = New System.Windows.Forms.CheckBox()
@@ -37,7 +38,14 @@ Partial Class Continuing
         Me.chcksportphysical = New System.Windows.Forms.CheckBox()
         Me.txtName = New System.Windows.Forms.TextBox()
         Me.txtPatientId = New System.Windows.Forms.TextBox()
+        Me.LilypadGardensDataSet = New VisualBasicFinalProject.LilypadGardensDataSet()
+        Me.PatientsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.PatientsTableAdapter = New VisualBasicFinalProject.LilypadGardensDataSetTableAdapters.PatientsTableAdapter()
+        Me.PatientsBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.gbSymptoms.SuspendLayout()
+        CType(Me.LilypadGardensDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PatientsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PatientsBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'gbSymptoms
@@ -190,17 +198,36 @@ Partial Class Continuing
         '
         'txtPatientId
         '
+        Me.txtPatientId.DataBindings.Add(New System.Windows.Forms.Binding("Tag", Me.PatientsBindingSource1, "PatientId", True))
         Me.txtPatientId.Enabled = False
         Me.txtPatientId.Location = New System.Drawing.Point(135, 41)
         Me.txtPatientId.Name = "txtPatientId"
         Me.txtPatientId.Size = New System.Drawing.Size(100, 20)
         Me.txtPatientId.TabIndex = 3
         '
+        'LilypadGardensDataSet
+        '
+        Me.LilypadGardensDataSet.DataSetName = "LilypadGardensDataSet"
+        Me.LilypadGardensDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'PatientsBindingSource
+        '
+        Me.PatientsBindingSource.DataMember = "Patients"
+        '
+        'PatientsTableAdapter
+        '
+        Me.PatientsTableAdapter.ClearBeforeFill = True
+        '
+        'PatientsBindingSource1
+        '
+        Me.PatientsBindingSource1.DataMember = "Patients"
+        Me.PatientsBindingSource1.DataSource = Me.LilypadGardensDataSet
+        '
         'Continuing
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(383, 390)
+        Me.ClientSize = New System.Drawing.Size(407, 390)
         Me.Controls.Add(Me.gbSymptoms)
         Me.Controls.Add(Me.txtName)
         Me.Controls.Add(Me.txtPatientId)
@@ -208,6 +235,9 @@ Partial Class Continuing
         Me.Text = "Continuing"
         Me.gbSymptoms.ResumeLayout(False)
         Me.gbSymptoms.PerformLayout()
+        CType(Me.LilypadGardensDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PatientsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PatientsBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -228,4 +258,8 @@ Partial Class Continuing
     Friend WithEvents chcksportphysical As CheckBox
     Friend WithEvents txtName As TextBox
     Friend WithEvents txtPatientId As TextBox
+    Friend WithEvents LilypadGardensDataSet As LilypadGardensDataSet
+    Friend WithEvents PatientsBindingSource As BindingSource
+    Friend WithEvents PatientsTableAdapter As LilypadGardensDataSetTableAdapters.PatientsTableAdapter
+    Friend WithEvents PatientsBindingSource1 As BindingSource
 End Class

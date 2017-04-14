@@ -25,7 +25,7 @@ Option Explicit On
 Partial Public Class LilypadGardensDataSet
     Inherits Global.System.Data.DataSet
     
-    Private tablePatients As PatientsDataTable
+    Private tablePatient As PatientDataTable
     
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
@@ -56,8 +56,8 @@ Partial Public Class LilypadGardensDataSet
         If (Me.DetermineSchemaSerializationMode(info, context) = Global.System.Data.SchemaSerializationMode.IncludeSchema) Then
             Dim ds As Global.System.Data.DataSet = New Global.System.Data.DataSet()
             ds.ReadXmlSchema(New Global.System.Xml.XmlTextReader(New Global.System.IO.StringReader(strSchema)))
-            If (Not (ds.Tables("Patients")) Is Nothing) Then
-                MyBase.Tables.Add(New PatientsDataTable(ds.Tables("Patients")))
+            If (Not (ds.Tables("Patient")) Is Nothing) Then
+                MyBase.Tables.Add(New PatientDataTable(ds.Tables("Patient")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -80,9 +80,9 @@ Partial Public Class LilypadGardensDataSet
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
      Global.System.ComponentModel.Browsable(false),  _
      Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property Patients() As PatientsDataTable
+    Public ReadOnly Property Patient() As PatientDataTable
         Get
-            Return Me.tablePatients
+            Return Me.tablePatient
         End Get
     End Property
     
@@ -153,8 +153,8 @@ Partial Public Class LilypadGardensDataSet
             Me.Reset
             Dim ds As Global.System.Data.DataSet = New Global.System.Data.DataSet()
             ds.ReadXml(reader)
-            If (Not (ds.Tables("Patients")) Is Nothing) Then
-                MyBase.Tables.Add(New PatientsDataTable(ds.Tables("Patients")))
+            If (Not (ds.Tables("Patient")) Is Nothing) Then
+                MyBase.Tables.Add(New PatientDataTable(ds.Tables("Patient")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -188,10 +188,10 @@ Partial Public Class LilypadGardensDataSet
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Friend Overloads Sub InitVars(ByVal initTable As Boolean)
-        Me.tablePatients = CType(MyBase.Tables("Patients"),PatientsDataTable)
+        Me.tablePatient = CType(MyBase.Tables("Patient"),PatientDataTable)
         If (initTable = true) Then
-            If (Not (Me.tablePatients) Is Nothing) Then
-                Me.tablePatients.InitVars
+            If (Not (Me.tablePatient) Is Nothing) Then
+                Me.tablePatient.InitVars
             End If
         End If
     End Sub
@@ -204,13 +204,13 @@ Partial Public Class LilypadGardensDataSet
         Me.Namespace = "http://tempuri.org/LilypadGardensDataSet.xsd"
         Me.EnforceConstraints = true
         Me.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
-        Me.tablePatients = New PatientsDataTable()
-        MyBase.Tables.Add(Me.tablePatients)
+        Me.tablePatient = New PatientDataTable()
+        MyBase.Tables.Add(Me.tablePatient)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Private Function ShouldSerializePatients() As Boolean
+    Private Function ShouldSerializePatient() As Boolean
         Return false
     End Function
     
@@ -273,15 +273,15 @@ Partial Public Class LilypadGardensDataSet
     End Function
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Public Delegate Sub PatientsRowChangeEventHandler(ByVal sender As Object, ByVal e As PatientsRowChangeEvent)
+    Public Delegate Sub PatientRowChangeEventHandler(ByVal sender As Object, ByVal e As PatientRowChangeEvent)
     
     '''<summary>
     '''Represents the strongly named DataTable class.
     '''</summary>
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class PatientsDataTable
-        Inherits Global.System.Data.TypedTableBase(Of PatientsRow)
+    Partial Public Class PatientDataTable
+        Inherits Global.System.Data.TypedTableBase(Of PatientRow)
         
         Private columnPatientId As Global.System.Data.DataColumn
         
@@ -292,6 +292,12 @@ Partial Public Class LilypadGardensDataSet
         Private columnSex As Global.System.Data.DataColumn
         
         Private columnAddress As Global.System.Data.DataColumn
+        
+        Private columnCity As Global.System.Data.DataColumn
+        
+        Private columnState As Global.System.Data.DataColumn
+        
+        Private columnZip As Global.System.Data.DataColumn
         
         Private columnPhone As Global.System.Data.DataColumn
         
@@ -309,7 +315,7 @@ Partial Public Class LilypadGardensDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
             MyBase.New
-            Me.TableName = "Patients"
+            Me.TableName = "Patient"
             Me.BeginInit
             Me.InitClass
             Me.EndInit
@@ -382,6 +388,30 @@ Partial Public Class LilypadGardensDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property CityColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCity
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property StateColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnState
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property ZipColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnZip
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public ReadOnly Property PhoneColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnPhone
@@ -439,50 +469,50 @@ Partial Public Class LilypadGardensDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As PatientsRow
+        Public Default ReadOnly Property Item(ByVal index As Integer) As PatientRow
             Get
-                Return CType(Me.Rows(index),PatientsRow)
+                Return CType(Me.Rows(index),PatientRow)
             End Get
         End Property
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event PatientsRowChanging As PatientsRowChangeEventHandler
+        Public Event PatientRowChanging As PatientRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event PatientsRowChanged As PatientsRowChangeEventHandler
+        Public Event PatientRowChanged As PatientRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event PatientsRowDeleting As PatientsRowChangeEventHandler
+        Public Event PatientRowDeleting As PatientRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event PatientsRowDeleted As PatientsRowChangeEventHandler
+        Public Event PatientRowDeleted As PatientRowChangeEventHandler
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Sub AddPatientsRow(ByVal row As PatientsRow)
+        Public Overloads Sub AddPatientRow(ByVal row As PatientRow)
             Me.Rows.Add(row)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddPatientsRow(ByVal LastName As String, ByVal FirstName As String, ByVal Sex As String, ByVal Address As String, ByVal Phone As String, ByVal Birthday As Date, ByVal SSN As String, ByVal Symptoms As String, ByVal DateVisited As Date, ByVal FamilyHistory As String) As PatientsRow
-            Dim rowPatientsRow As PatientsRow = CType(Me.NewRow,PatientsRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, LastName, FirstName, Sex, Address, Phone, Birthday, SSN, Symptoms, DateVisited, FamilyHistory}
-            rowPatientsRow.ItemArray = columnValuesArray
-            Me.Rows.Add(rowPatientsRow)
-            Return rowPatientsRow
+        Public Overloads Function AddPatientRow(ByVal LastName As String, ByVal FirstName As String, ByVal Sex As String, ByVal Address As String, ByVal City As String, ByVal State As String, ByVal Zip As Decimal, ByVal Phone As String, ByVal Birthday As Date, ByVal SSN As String, ByVal Symptoms As String, ByVal DateVisited As Date, ByVal FamilyHistory As String) As PatientRow
+            Dim rowPatientRow As PatientRow = CType(Me.NewRow,PatientRow)
+            Dim columnValuesArray() As Object = New Object() {Nothing, LastName, FirstName, Sex, Address, City, State, Zip, Phone, Birthday, SSN, Symptoms, DateVisited, FamilyHistory}
+            rowPatientRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowPatientRow)
+            Return rowPatientRow
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function FindByPatientId(ByVal PatientId As Integer) As PatientsRow
-            Return CType(Me.Rows.Find(New Object() {PatientId}),PatientsRow)
+        Public Function FindByPatientId(ByVal PatientId As Integer) As PatientRow
+            Return CType(Me.Rows.Find(New Object() {PatientId}),PatientRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As PatientsDataTable = CType(MyBase.Clone,PatientsDataTable)
+            Dim cln As PatientDataTable = CType(MyBase.Clone,PatientDataTable)
             cln.InitVars
             Return cln
         End Function
@@ -490,7 +520,7 @@ Partial Public Class LilypadGardensDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New PatientsDataTable()
+            Return New PatientDataTable()
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -501,6 +531,9 @@ Partial Public Class LilypadGardensDataSet
             Me.columnFirstName = MyBase.Columns("FirstName")
             Me.columnSex = MyBase.Columns("Sex")
             Me.columnAddress = MyBase.Columns("Address")
+            Me.columnCity = MyBase.Columns("City")
+            Me.columnState = MyBase.Columns("State")
+            Me.columnZip = MyBase.Columns("Zip")
             Me.columnPhone = MyBase.Columns("Phone")
             Me.columnBirthday = MyBase.Columns("Birthday")
             Me.columnSSN = MyBase.Columns("SSN")
@@ -522,6 +555,12 @@ Partial Public Class LilypadGardensDataSet
             MyBase.Columns.Add(Me.columnSex)
             Me.columnAddress = New Global.System.Data.DataColumn("Address", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnAddress)
+            Me.columnCity = New Global.System.Data.DataColumn("City", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCity)
+            Me.columnState = New Global.System.Data.DataColumn("State", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnState)
+            Me.columnZip = New Global.System.Data.DataColumn("Zip", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnZip)
             Me.columnPhone = New Global.System.Data.DataColumn("Phone", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnPhone)
             Me.columnBirthday = New Global.System.Data.DataColumn("Birthday", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
@@ -543,11 +582,14 @@ Partial Public Class LilypadGardensDataSet
             Me.columnPatientId.Unique = true
             Me.columnLastName.AllowDBNull = false
             Me.columnLastName.MaxLength = 50
-            Me.columnFirstName.MaxLength = 10
+            Me.columnFirstName.AllowDBNull = false
+            Me.columnFirstName.MaxLength = 50
             Me.columnSex.AllowDBNull = false
             Me.columnSex.MaxLength = 50
             Me.columnAddress.AllowDBNull = false
             Me.columnAddress.MaxLength = 50
+            Me.columnCity.MaxLength = 50
+            Me.columnState.MaxLength = 3
             Me.columnPhone.MaxLength = 50
             Me.columnBirthday.AllowDBNull = false
             Me.columnSSN.AllowDBNull = false
@@ -560,28 +602,28 @@ Partial Public Class LilypadGardensDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function NewPatientsRow() As PatientsRow
-            Return CType(Me.NewRow,PatientsRow)
+        Public Function NewPatientRow() As PatientRow
+            Return CType(Me.NewRow,PatientRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New PatientsRow(builder)
+            Return New PatientRow(builder)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(PatientsRow)
+            Return GetType(PatientRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanged(e)
-            If (Not (Me.PatientsRowChangedEvent) Is Nothing) Then
-                RaiseEvent PatientsRowChanged(Me, New PatientsRowChangeEvent(CType(e.Row,PatientsRow), e.Action))
+            If (Not (Me.PatientRowChangedEvent) Is Nothing) Then
+                RaiseEvent PatientRowChanged(Me, New PatientRowChangeEvent(CType(e.Row,PatientRow), e.Action))
             End If
         End Sub
         
@@ -589,8 +631,8 @@ Partial Public Class LilypadGardensDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanging(e)
-            If (Not (Me.PatientsRowChangingEvent) Is Nothing) Then
-                RaiseEvent PatientsRowChanging(Me, New PatientsRowChangeEvent(CType(e.Row,PatientsRow), e.Action))
+            If (Not (Me.PatientRowChangingEvent) Is Nothing) Then
+                RaiseEvent PatientRowChanging(Me, New PatientRowChangeEvent(CType(e.Row,PatientRow), e.Action))
             End If
         End Sub
         
@@ -598,8 +640,8 @@ Partial Public Class LilypadGardensDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleted(e)
-            If (Not (Me.PatientsRowDeletedEvent) Is Nothing) Then
-                RaiseEvent PatientsRowDeleted(Me, New PatientsRowChangeEvent(CType(e.Row,PatientsRow), e.Action))
+            If (Not (Me.PatientRowDeletedEvent) Is Nothing) Then
+                RaiseEvent PatientRowDeleted(Me, New PatientRowChangeEvent(CType(e.Row,PatientRow), e.Action))
             End If
         End Sub
         
@@ -607,14 +649,14 @@ Partial Public Class LilypadGardensDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleting(e)
-            If (Not (Me.PatientsRowDeletingEvent) Is Nothing) Then
-                RaiseEvent PatientsRowDeleting(Me, New PatientsRowChangeEvent(CType(e.Row,PatientsRow), e.Action))
+            If (Not (Me.PatientRowDeletingEvent) Is Nothing) Then
+                RaiseEvent PatientRowDeleting(Me, New PatientRowChangeEvent(CType(e.Row,PatientRow), e.Action))
             End If
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub RemovePatientsRow(ByVal row As PatientsRow)
+        Public Sub RemovePatientRow(ByVal row As PatientRow)
             Me.Rows.Remove(row)
         End Sub
         
@@ -641,7 +683,7 @@ Partial Public Class LilypadGardensDataSet
             type.Attributes.Add(attribute1)
             Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
             attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "PatientsDataTable"
+            attribute2.FixedValue = "PatientDataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
@@ -688,26 +730,26 @@ Partial Public Class LilypadGardensDataSet
     '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
-    Partial Public Class PatientsRow
+    Partial Public Class PatientRow
         Inherits Global.System.Data.DataRow
         
-        Private tablePatients As PatientsDataTable
+        Private tablePatient As PatientDataTable
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
             MyBase.New(rb)
-            Me.tablePatients = CType(Me.Table,PatientsDataTable)
+            Me.tablePatient = CType(Me.Table,PatientDataTable)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property PatientId() As Integer
             Get
-                Return CType(Me(Me.tablePatients.PatientIdColumn),Integer)
+                Return CType(Me(Me.tablePatient.PatientIdColumn),Integer)
             End Get
             Set
-                Me(Me.tablePatients.PatientIdColumn) = value
+                Me(Me.tablePatient.PatientIdColumn) = value
             End Set
         End Property
         
@@ -715,10 +757,10 @@ Partial Public Class LilypadGardensDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property LastName() As String
             Get
-                Return CType(Me(Me.tablePatients.LastNameColumn),String)
+                Return CType(Me(Me.tablePatient.LastNameColumn),String)
             End Get
             Set
-                Me(Me.tablePatients.LastNameColumn) = value
+                Me(Me.tablePatient.LastNameColumn) = value
             End Set
         End Property
         
@@ -726,14 +768,10 @@ Partial Public Class LilypadGardensDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property FirstName() As String
             Get
-                Try 
-                    Return CType(Me(Me.tablePatients.FirstNameColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'FirstName' in table 'Patients' is DBNull.", e)
-                End Try
+                Return CType(Me(Me.tablePatient.FirstNameColumn),String)
             End Get
             Set
-                Me(Me.tablePatients.FirstNameColumn) = value
+                Me(Me.tablePatient.FirstNameColumn) = value
             End Set
         End Property
         
@@ -741,10 +779,10 @@ Partial Public Class LilypadGardensDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property Sex() As String
             Get
-                Return CType(Me(Me.tablePatients.SexColumn),String)
+                Return CType(Me(Me.tablePatient.SexColumn),String)
             End Get
             Set
-                Me(Me.tablePatients.SexColumn) = value
+                Me(Me.tablePatient.SexColumn) = value
             End Set
         End Property
         
@@ -752,10 +790,55 @@ Partial Public Class LilypadGardensDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property Address() As String
             Get
-                Return CType(Me(Me.tablePatients.AddressColumn),String)
+                Return CType(Me(Me.tablePatient.AddressColumn),String)
             End Get
             Set
-                Me(Me.tablePatients.AddressColumn) = value
+                Me(Me.tablePatient.AddressColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property City() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePatient.CityColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'City' in table 'Patient' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePatient.CityColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property State() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePatient.StateColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'State' in table 'Patient' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePatient.StateColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Zip() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tablePatient.ZipColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Zip' in table 'Patient' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePatient.ZipColumn) = value
             End Set
         End Property
         
@@ -764,13 +847,13 @@ Partial Public Class LilypadGardensDataSet
         Public Property Phone() As String
             Get
                 Try 
-                    Return CType(Me(Me.tablePatients.PhoneColumn),String)
+                    Return CType(Me(Me.tablePatient.PhoneColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Phone' in table 'Patients' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Phone' in table 'Patient' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tablePatients.PhoneColumn) = value
+                Me(Me.tablePatient.PhoneColumn) = value
             End Set
         End Property
         
@@ -778,10 +861,10 @@ Partial Public Class LilypadGardensDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property Birthday() As Date
             Get
-                Return CType(Me(Me.tablePatients.BirthdayColumn),Date)
+                Return CType(Me(Me.tablePatient.BirthdayColumn),Date)
             End Get
             Set
-                Me(Me.tablePatients.BirthdayColumn) = value
+                Me(Me.tablePatient.BirthdayColumn) = value
             End Set
         End Property
         
@@ -789,10 +872,10 @@ Partial Public Class LilypadGardensDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property SSN() As String
             Get
-                Return CType(Me(Me.tablePatients.SSNColumn),String)
+                Return CType(Me(Me.tablePatient.SSNColumn),String)
             End Get
             Set
-                Me(Me.tablePatients.SSNColumn) = value
+                Me(Me.tablePatient.SSNColumn) = value
             End Set
         End Property
         
@@ -800,10 +883,10 @@ Partial Public Class LilypadGardensDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property Symptoms() As String
             Get
-                Return CType(Me(Me.tablePatients.SymptomsColumn),String)
+                Return CType(Me(Me.tablePatient.SymptomsColumn),String)
             End Get
             Set
-                Me(Me.tablePatients.SymptomsColumn) = value
+                Me(Me.tablePatient.SymptomsColumn) = value
             End Set
         End Property
         
@@ -811,10 +894,10 @@ Partial Public Class LilypadGardensDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property DateVisited() As Date
             Get
-                Return CType(Me(Me.tablePatients.DateVisitedColumn),Date)
+                Return CType(Me(Me.tablePatient.DateVisitedColumn),Date)
             End Get
             Set
-                Me(Me.tablePatients.DateVisitedColumn) = value
+                Me(Me.tablePatient.DateVisitedColumn) = value
             End Set
         End Property
         
@@ -823,50 +906,74 @@ Partial Public Class LilypadGardensDataSet
         Public Property FamilyHistory() As String
             Get
                 Try 
-                    Return CType(Me(Me.tablePatients.FamilyHistoryColumn),String)
+                    Return CType(Me(Me.tablePatient.FamilyHistoryColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'FamilyHistory' in table 'Patients' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'FamilyHistory' in table 'Patient' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tablePatients.FamilyHistoryColumn) = value
+                Me(Me.tablePatient.FamilyHistoryColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsFirstNameNull() As Boolean
-            Return Me.IsNull(Me.tablePatients.FirstNameColumn)
+        Public Function IsCityNull() As Boolean
+            Return Me.IsNull(Me.tablePatient.CityColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetFirstNameNull()
-            Me(Me.tablePatients.FirstNameColumn) = Global.System.Convert.DBNull
+        Public Sub SetCityNull()
+            Me(Me.tablePatient.CityColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsStateNull() As Boolean
+            Return Me.IsNull(Me.tablePatient.StateColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetStateNull()
+            Me(Me.tablePatient.StateColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsZipNull() As Boolean
+            Return Me.IsNull(Me.tablePatient.ZipColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetZipNull()
+            Me(Me.tablePatient.ZipColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsPhoneNull() As Boolean
-            Return Me.IsNull(Me.tablePatients.PhoneColumn)
+            Return Me.IsNull(Me.tablePatient.PhoneColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetPhoneNull()
-            Me(Me.tablePatients.PhoneColumn) = Global.System.Convert.DBNull
+            Me(Me.tablePatient.PhoneColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsFamilyHistoryNull() As Boolean
-            Return Me.IsNull(Me.tablePatients.FamilyHistoryColumn)
+            Return Me.IsNull(Me.tablePatient.FamilyHistoryColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetFamilyHistoryNull()
-            Me(Me.tablePatients.FamilyHistoryColumn) = Global.System.Convert.DBNull
+            Me(Me.tablePatient.FamilyHistoryColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -874,16 +981,16 @@ Partial Public Class LilypadGardensDataSet
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Public Class PatientsRowChangeEvent
+    Public Class PatientRowChangeEvent
         Inherits Global.System.EventArgs
         
-        Private eventRow As PatientsRow
+        Private eventRow As PatientRow
         
         Private eventAction As Global.System.Data.DataRowAction
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub New(ByVal row As PatientsRow, ByVal action As Global.System.Data.DataRowAction)
+        Public Sub New(ByVal row As PatientRow, ByVal action As Global.System.Data.DataRowAction)
             MyBase.New
             Me.eventRow = row
             Me.eventAction = action
@@ -891,7 +998,7 @@ Partial Public Class LilypadGardensDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property Row() As PatientsRow
+        Public ReadOnly Property Row() As PatientRow
             Get
                 Return Me.eventRow
             End Get
@@ -918,7 +1025,7 @@ Namespace LilypadGardensDataSetTableAdapters
      Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
      Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-    Partial Public Class PatientsTableAdapter
+    Partial Public Class PatientTableAdapter
         Inherits Global.System.ComponentModel.Component
         
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
@@ -1035,12 +1142,15 @@ Namespace LilypadGardensDataSetTableAdapters
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
             tableMapping.SourceTable = "Table"
-            tableMapping.DataSetTable = "Patients"
+            tableMapping.DataSetTable = "Patient"
             tableMapping.ColumnMappings.Add("PatientId", "PatientId")
             tableMapping.ColumnMappings.Add("LastName", "LastName")
             tableMapping.ColumnMappings.Add("FirstName", "FirstName")
             tableMapping.ColumnMappings.Add("Sex", "Sex")
             tableMapping.ColumnMappings.Add("Address", "Address")
+            tableMapping.ColumnMappings.Add("City", "City")
+            tableMapping.ColumnMappings.Add("State", "State")
+            tableMapping.ColumnMappings.Add("Zip", "Zip")
             tableMapping.ColumnMappings.Add("Phone", "Phone")
             tableMapping.ColumnMappings.Add("Birthday", "Birthday")
             tableMapping.ColumnMappings.Add("SSN", "SSN")
@@ -1050,21 +1160,28 @@ Namespace LilypadGardensDataSetTableAdapters
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Patients] WHERE (([PatientId] = @Original_PatientId) AND ([Las"& _ 
-                "tName] = @Original_LastName) AND ((@IsNull_FirstName = 1 AND [FirstName] IS NULL"& _ 
-                ") OR ([FirstName] = @Original_FirstName)) AND ([Sex] = @Original_Sex) AND ([Addr"& _ 
-                "ess] = @Original_Address) AND ((@IsNull_Phone = 1 AND [Phone] IS NULL) OR ([Phon"& _ 
-                "e] = @Original_Phone)) AND ([Birthday] = @Original_Birthday) AND ([SSN] = @Origi"& _ 
-                "nal_SSN) AND ([Symptoms] = @Original_Symptoms) AND ([DateVisited] = @Original_Da"& _ 
-                "teVisited) AND ((@IsNull_FamilyHistory = 1 AND [FamilyHistory] IS NULL) OR ([Fam"& _ 
-                "ilyHistory] = @Original_FamilyHistory)))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Patient] WHERE (([PatientId] = @Original_PatientId) AND ([Last"& _ 
+                "Name] = @Original_LastName) AND ([FirstName] = @Original_FirstName) AND ([Sex] ="& _ 
+                " @Original_Sex) AND ([Address] = @Original_Address) AND ((@IsNull_City = 1 AND ["& _ 
+                "City] IS NULL) OR ([City] = @Original_City)) AND ((@IsNull_State = 1 AND [State]"& _ 
+                " IS NULL) OR ([State] = @Original_State)) AND ((@IsNull_Zip = 1 AND [Zip] IS NUL"& _ 
+                "L) OR ([Zip] = @Original_Zip)) AND ((@IsNull_Phone = 1 AND [Phone] IS NULL) OR ("& _ 
+                "[Phone] = @Original_Phone)) AND ([Birthday] = @Original_Birthday) AND ([SSN] = @"& _ 
+                "Original_SSN) AND ([Symptoms] = @Original_Symptoms) AND ([DateVisited] = @Origin"& _ 
+                "al_DateVisited) AND ((@IsNull_FamilyHistory = 1 AND [FamilyHistory] IS NULL) OR "& _ 
+                "([FamilyHistory] = @Original_FamilyHistory)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PatientId", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PatientId", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_LastName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LastName", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_FirstName", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FirstName", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_FirstName", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FirstName", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_FirstName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FirstName", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Sex", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sex", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Address", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Address", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_City", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "City", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_City", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "City", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_State", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "State", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_State", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "State", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Zip", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Zip", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Zip", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 6, 0, "Zip", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Phone", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Phone", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Phone", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Phone", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Birthday", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Birthday", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
@@ -1075,43 +1192,52 @@ Namespace LilypadGardensDataSetTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_FamilyHistory", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FamilyHistory", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Patients] ([LastName], [FirstName], [Sex], [Address], [Phone],"& _ 
-                " [Birthday], [SSN], [Symptoms], [DateVisited], [FamilyHistory]) VALUES (@LastNam"& _ 
-                "e, @FirstName, @Sex, @Address, @Phone, @Birthday, @SSN, @Symptoms, @DateVisited,"& _ 
-                " @FamilyHistory);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT PatientId, LastName, FirstName, Sex, Address, Phone, B"& _ 
-                "irthday, SSN, Symptoms, DateVisited, FamilyHistory FROM Patients WHERE (PatientI"& _ 
-                "d = SCOPE_IDENTITY())"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO Patient"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (LastName, FirstName, Sex, Address,"& _ 
+                " City, State, Zip, Phone, Birthday, SSN, Symptoms, DateVisited, FamilyHistory)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
+                "VALUES        (@LastName,@FirstName,@Sex,@Address,@City,@State,@Zip,@Phone,@Birt"& _ 
+                "hday,@SSN,@Symptoms,@DateVisited,@FamilyHistory); "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT PatientId, LastName, "& _ 
+                "FirstName, Sex, Address, City, State, Zip, Phone, Birthday, SSN, Symptoms, DateV"& _ 
+                "isited, FamilyHistory FROM Patient WHERE (PatientId = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LastName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LastName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FirstName", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FirstName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Sex", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sex", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Address", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Address", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Phone", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Phone", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Birthday", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Birthday", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SSN", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SSN", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Symptoms", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Symptoms", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateVisited", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DateVisited", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FamilyHistory", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FamilyHistory", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LastName", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "LastName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FirstName", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "FirstName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Sex", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Sex", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Address", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Address", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@City", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "City", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@State", Global.System.Data.SqlDbType.NVarChar, 3, Global.System.Data.ParameterDirection.Input, 0, 0, "State", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Zip", Global.System.Data.SqlDbType.[Decimal], 5, Global.System.Data.ParameterDirection.Input, 6, 0, "Zip", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Phone", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Phone", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Birthday", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "Birthday", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SSN", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "SSN", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Symptoms", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Symptoms", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateVisited", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "DateVisited", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FamilyHistory", Global.System.Data.SqlDbType.NChar, 1000, Global.System.Data.ParameterDirection.Input, 0, 0, "FamilyHistory", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Patients] SET [LastName] = @LastName, [FirstName] = @FirstName, [Se"& _ 
-                "x] = @Sex, [Address] = @Address, [Phone] = @Phone, [Birthday] = @Birthday, [SSN]"& _ 
-                " = @SSN, [Symptoms] = @Symptoms, [DateVisited] = @DateVisited, [FamilyHistory] ="& _ 
-                " @FamilyHistory WHERE (([PatientId] = @Original_PatientId) AND ([LastName] = @Or"& _ 
-                "iginal_LastName) AND ((@IsNull_FirstName = 1 AND [FirstName] IS NULL) OR ([First"& _ 
-                "Name] = @Original_FirstName)) AND ([Sex] = @Original_Sex) AND ([Address] = @Orig"& _ 
-                "inal_Address) AND ((@IsNull_Phone = 1 AND [Phone] IS NULL) OR ([Phone] = @Origin"& _ 
-                "al_Phone)) AND ([Birthday] = @Original_Birthday) AND ([SSN] = @Original_SSN) AND"& _ 
-                " ([Symptoms] = @Original_Symptoms) AND ([DateVisited] = @Original_DateVisited) A"& _ 
-                "ND ((@IsNull_FamilyHistory = 1 AND [FamilyHistory] IS NULL) OR ([FamilyHistory] "& _ 
-                "= @Original_FamilyHistory)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT PatientId, LastName, FirstName, Sex, Addre"& _ 
-                "ss, Phone, Birthday, SSN, Symptoms, DateVisited, FamilyHistory FROM Patients WHE"& _ 
-                "RE (PatientId = @PatientId)"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Patient] SET [LastName] = @LastName, [FirstName] = @FirstName, [Sex"& _ 
+                "] = @Sex, [Address] = @Address, [City] = @City, [State] = @State, [Zip] = @Zip, "& _ 
+                "[Phone] = @Phone, [Birthday] = @Birthday, [SSN] = @SSN, [Symptoms] = @Symptoms, "& _ 
+                "[DateVisited] = @DateVisited, [FamilyHistory] = @FamilyHistory WHERE (([PatientI"& _ 
+                "d] = @Original_PatientId) AND ([LastName] = @Original_LastName) AND ([FirstName]"& _ 
+                " = @Original_FirstName) AND ([Sex] = @Original_Sex) AND ([Address] = @Original_A"& _ 
+                "ddress) AND ((@IsNull_City = 1 AND [City] IS NULL) OR ([City] = @Original_City))"& _ 
+                " AND ((@IsNull_State = 1 AND [State] IS NULL) OR ([State] = @Original_State)) AN"& _ 
+                "D ((@IsNull_Zip = 1 AND [Zip] IS NULL) OR ([Zip] = @Original_Zip)) AND ((@IsNull"& _ 
+                "_Phone = 1 AND [Phone] IS NULL) OR ([Phone] = @Original_Phone)) AND ([Birthday] "& _ 
+                "= @Original_Birthday) AND ([SSN] = @Original_SSN) AND ([Symptoms] = @Original_Sy"& _ 
+                "mptoms) AND ([DateVisited] = @Original_DateVisited) AND ((@IsNull_FamilyHistory "& _ 
+                "= 1 AND [FamilyHistory] IS NULL) OR ([FamilyHistory] = @Original_FamilyHistory))"& _ 
+                ");"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT PatientId, LastName, FirstName, Sex, Address, City, State, Zip, Phone"& _ 
+                ", Birthday, SSN, Symptoms, DateVisited, FamilyHistory FROM Patient WHERE (Patien"& _ 
+                "tId = @PatientId)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LastName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LastName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FirstName", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FirstName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FirstName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FirstName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Sex", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sex", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Address", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Address", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@City", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "City", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@State", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "State", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Zip", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 6, 0, "Zip", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Phone", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Phone", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Birthday", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Birthday", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SSN", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SSN", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -1120,10 +1246,15 @@ Namespace LilypadGardensDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FamilyHistory", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FamilyHistory", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PatientId", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PatientId", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_LastName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LastName", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_FirstName", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FirstName", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_FirstName", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FirstName", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_FirstName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FirstName", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Sex", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sex", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Address", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Address", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_City", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "City", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_City", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "City", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_State", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "State", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_State", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "State", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Zip", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Zip", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Zip", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 6, 0, "Zip", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Phone", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Phone", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Phone", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Phone", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Birthday", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Birthday", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
@@ -1148,14 +1279,14 @@ Namespace LilypadGardensDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT PatientId, LastName, FirstName, Sex, Address, Phone, Birthday, SSN, Sympto"& _ 
-                "ms, DateVisited, FamilyHistory FROM dbo.Patients"
+            Me._commandCollection(0).CommandText = "SELECT PatientId, LastName, FirstName, Sex, Address, City, State, Zip, Phone, Bir"& _ 
+                "thday, SSN, Symptoms, DateVisited, FamilyHistory FROM dbo.Patient"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT        PatientId, LastName, FirstName, Sex, Address, Phone, Birthday, SSN,"& _ 
-                " Symptoms, DateVisited, FamilyHistory"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Patients"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (L"& _ 
-                "astName LIKE @name + '%') AND (Birthday <= @date)"
+            Me._commandCollection(1).CommandText = "SELECT PatientId, LastName, FirstName, Sex, Address, City, State, Zip, Phone, Bir"& _ 
+                "thday, SSN, Symptoms, DateVisited, FamilyHistory"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Patient"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE"& _ 
+                "        (LastName LIKE @name + '%') AND (Birthday <= @date)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@name", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "LastName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@date", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "Birthday", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -1165,7 +1296,7 @@ Namespace LilypadGardensDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As LilypadGardensDataSet.PatientsDataTable) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As LilypadGardensDataSet.PatientDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -1178,9 +1309,9 @@ Namespace LilypadGardensDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As LilypadGardensDataSet.PatientsDataTable
+        Public Overloads Overridable Function GetData() As LilypadGardensDataSet.PatientDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Dim dataTable As LilypadGardensDataSet.PatientsDataTable = New LilypadGardensDataSet.PatientsDataTable()
+            Dim dataTable As LilypadGardensDataSet.PatientDataTable = New LilypadGardensDataSet.PatientDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
@@ -1189,7 +1320,7 @@ Namespace LilypadGardensDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FindPatient(ByVal dataTable As LilypadGardensDataSet.PatientsDataTable, ByVal name As String, ByVal _date As String) As Integer
+        Public Overloads Overridable Function FindPatient(ByVal dataTable As LilypadGardensDataSet.PatientDataTable, ByVal name As String, ByVal _date As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
             If (name Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("name")
@@ -1211,7 +1342,7 @@ Namespace LilypadGardensDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataTable As LilypadGardensDataSet.PatientsDataTable) As Integer
+        Public Overloads Overridable Function Update(ByVal dataTable As LilypadGardensDataSet.PatientDataTable) As Integer
             Return Me.Adapter.Update(dataTable)
         End Function
         
@@ -1219,7 +1350,7 @@ Namespace LilypadGardensDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
         Public Overloads Overridable Function Update(ByVal dataSet As LilypadGardensDataSet) As Integer
-            Return Me.Adapter.Update(dataSet, "Patients")
+            Return Me.Adapter.Update(dataSet, "Patient")
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1240,7 +1371,7 @@ Namespace LilypadGardensDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_PatientId As Integer, ByVal Original_LastName As String, ByVal Original_FirstName As String, ByVal Original_Sex As String, ByVal Original_Address As String, ByVal Original_Phone As String, ByVal Original_Birthday As Date, ByVal Original_SSN As String, ByVal Original_Symptoms As String, ByVal Original_DateVisited As Date, ByVal Original_FamilyHistory As String) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_PatientId As Integer, ByVal Original_LastName As String, ByVal Original_FirstName As String, ByVal Original_Sex As String, ByVal Original_Address As String, ByVal Original_City As String, ByVal Original_State As String, ByVal Original_Zip As Global.System.Nullable(Of Decimal), ByVal Original_Phone As String, ByVal Original_Birthday As Date, ByVal Original_SSN As String, ByVal Original_Symptoms As String, ByVal Original_DateVisited As Date, ByVal Original_FamilyHistory As String) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_PatientId,Integer)
             If (Original_LastName Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_LastName")
@@ -1248,47 +1379,66 @@ Namespace LilypadGardensDataSetTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_LastName,String)
             End If
             If (Original_FirstName Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(3).Value = Global.System.DBNull.Value
+                Throw New Global.System.ArgumentNullException("Original_FirstName")
             Else
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_FirstName,String)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_FirstName,String)
             End If
             If (Original_Sex Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_Sex")
             Else
-                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_Sex,String)
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_Sex,String)
             End If
             If (Original_Address Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_Address")
             Else
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(Original_Address,String)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_Address,String)
+            End If
+            If (Original_City Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(6).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_City,String)
+            End If
+            If (Original_State Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(8).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_State,String)
+            End If
+            If (Original_Zip.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_Zip.Value,Decimal)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(10).Value = Global.System.DBNull.Value
             End If
             If (Original_Phone Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(7).Value = Global.System.DBNull.Value
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(12).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(Original_Phone,String)
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_Phone,String)
             End If
-            Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_Birthday,Date)
+            Me.Adapter.DeleteCommand.Parameters(13).Value = CType(Original_Birthday,Date)
             If (Original_SSN Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_SSN")
             Else
-                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(Original_SSN,String)
+                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(Original_SSN,String)
             End If
             If (Original_Symptoms Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_Symptoms")
             Else
-                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_Symptoms,String)
+                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(Original_Symptoms,String)
             End If
-            Me.Adapter.DeleteCommand.Parameters(11).Value = CType(Original_DateVisited,Date)
+            Me.Adapter.DeleteCommand.Parameters(16).Value = CType(Original_DateVisited,Date)
             If (Original_FamilyHistory Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(13).Value = Global.System.DBNull.Value
+                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(18).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(Original_FamilyHistory,String)
+                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(18).Value = CType(Original_FamilyHistory,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -1309,14 +1459,14 @@ Namespace LilypadGardensDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal LastName As String, ByVal FirstName As String, ByVal Sex As String, ByVal Address As String, ByVal Phone As String, ByVal Birthday As Date, ByVal SSN As String, ByVal Symptoms As String, ByVal DateVisited As Date, ByVal FamilyHistory As String) As Integer
+        Public Overloads Overridable Function Insert(ByVal LastName As String, ByVal FirstName As String, ByVal Sex As String, ByVal Address As String, ByVal City As String, ByVal State As String, ByVal Zip As Global.System.Nullable(Of Decimal), ByVal Phone As String, ByVal Birthday As String, ByVal SSN As String, ByVal Symptoms As String, ByVal DateVisited As String, ByVal FamilyHistory As String) As Integer
             If (LastName Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("LastName")
             Else
                 Me.Adapter.InsertCommand.Parameters(0).Value = CType(LastName,String)
             End If
             If (FirstName Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
+                Throw New Global.System.ArgumentNullException("FirstName")
             Else
                 Me.Adapter.InsertCommand.Parameters(1).Value = CType(FirstName,String)
             End If
@@ -1330,27 +1480,50 @@ Namespace LilypadGardensDataSetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(3).Value = CType(Address,String)
             End If
-            If (Phone Is Nothing) Then
+            If (City Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(4).Value = CType(Phone,String)
+                Me.Adapter.InsertCommand.Parameters(4).Value = CType(City,String)
             End If
-            Me.Adapter.InsertCommand.Parameters(5).Value = CType(Birthday,Date)
+            If (State Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(5).Value = CType(State,String)
+            End If
+            If (Zip.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(6).Value = CType(Zip.Value,Decimal)
+            Else
+                Me.Adapter.InsertCommand.Parameters(6).Value = Global.System.DBNull.Value
+            End If
+            If (Phone Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(7).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(7).Value = CType(Phone,String)
+            End If
+            If (Birthday Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Birthday")
+            Else
+                Me.Adapter.InsertCommand.Parameters(8).Value = CType(Birthday,String)
+            End If
             If (SSN Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("SSN")
             Else
-                Me.Adapter.InsertCommand.Parameters(6).Value = CType(SSN,String)
+                Me.Adapter.InsertCommand.Parameters(9).Value = CType(SSN,String)
             End If
             If (Symptoms Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Symptoms")
             Else
-                Me.Adapter.InsertCommand.Parameters(7).Value = CType(Symptoms,String)
+                Me.Adapter.InsertCommand.Parameters(10).Value = CType(Symptoms,String)
             End If
-            Me.Adapter.InsertCommand.Parameters(8).Value = CType(DateVisited,Date)
-            If (FamilyHistory Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(9).Value = Global.System.DBNull.Value
+            If (DateVisited Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("DateVisited")
             Else
-                Me.Adapter.InsertCommand.Parameters(9).Value = CType(FamilyHistory,String)
+                Me.Adapter.InsertCommand.Parameters(11).Value = CType(DateVisited,String)
+            End If
+            If (FamilyHistory Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(12).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(12).Value = CType(FamilyHistory,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -1376,6 +1549,9 @@ Namespace LilypadGardensDataSetTableAdapters
                     ByVal FirstName As String,  _
                     ByVal Sex As String,  _
                     ByVal Address As String,  _
+                    ByVal City As String,  _
+                    ByVal State As String,  _
+                    ByVal Zip As Global.System.Nullable(Of Decimal),  _
                     ByVal Phone As String,  _
                     ByVal Birthday As Date,  _
                     ByVal SSN As String,  _
@@ -1387,6 +1563,9 @@ Namespace LilypadGardensDataSetTableAdapters
                     ByVal Original_FirstName As String,  _
                     ByVal Original_Sex As String,  _
                     ByVal Original_Address As String,  _
+                    ByVal Original_City As String,  _
+                    ByVal Original_State As String,  _
+                    ByVal Original_Zip As Global.System.Nullable(Of Decimal),  _
                     ByVal Original_Phone As String,  _
                     ByVal Original_Birthday As Date,  _
                     ByVal Original_SSN As String,  _
@@ -1400,7 +1579,7 @@ Namespace LilypadGardensDataSetTableAdapters
                 Me.Adapter.UpdateCommand.Parameters(0).Value = CType(LastName,String)
             End If
             If (FirstName Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
+                Throw New Global.System.ArgumentNullException("FirstName")
             Else
                 Me.Adapter.UpdateCommand.Parameters(1).Value = CType(FirstName,String)
             End If
@@ -1414,78 +1593,112 @@ Namespace LilypadGardensDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Address,String)
             End If
-            If (Phone Is Nothing) Then
+            If (City Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Phone,String)
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(City,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Birthday,Date)
+            If (State Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(State,String)
+            End If
+            If (Zip.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Zip.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
+            End If
+            If (Phone Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Phone,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Birthday,Date)
             If (SSN Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("SSN")
             Else
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(SSN,String)
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(SSN,String)
             End If
             If (Symptoms Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Symptoms")
             Else
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Symptoms,String)
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Symptoms,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(8).Value = CType(DateVisited,Date)
+            Me.Adapter.UpdateCommand.Parameters(11).Value = CType(DateVisited,Date)
             If (FamilyHistory Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(FamilyHistory,String)
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(FamilyHistory,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_PatientId,Integer)
+            Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_PatientId,Integer)
             If (Original_LastName Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_LastName")
             Else
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_LastName,String)
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_LastName,String)
             End If
             If (Original_FirstName Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
+                Throw New Global.System.ArgumentNullException("Original_FirstName")
             Else
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_FirstName,String)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_FirstName,String)
             End If
             If (Original_Sex Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_Sex")
             Else
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_Sex,String)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Original_Sex,String)
             End If
             If (Original_Address Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_Address")
             Else
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_Address,String)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Original_Address,String)
+            End If
+            If (Original_City Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(Original_City,String)
+            End If
+            If (Original_State Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(21).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(Original_State,String)
+            End If
+            If (Original_Zip.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(Original_Zip.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(23).Value = Global.System.DBNull.Value
             End If
             If (Original_Phone Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(25).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Original_Phone,String)
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(Original_Phone,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(18).Value = CType(Original_Birthday,Date)
+            Me.Adapter.UpdateCommand.Parameters(26).Value = CType(Original_Birthday,Date)
             If (Original_SSN Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_SSN")
             Else
-                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(Original_SSN,String)
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(Original_SSN,String)
             End If
             If (Original_Symptoms Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_Symptoms")
             Else
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(Original_Symptoms,String)
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(Original_Symptoms,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(21).Value = CType(Original_DateVisited,Date)
+            Me.Adapter.UpdateCommand.Parameters(29).Value = CType(Original_DateVisited,Date)
             If (Original_FamilyHistory Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(23).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(31).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(Original_FamilyHistory,String)
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(Original_FamilyHistory,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(24).Value = CType(PatientId,Integer)
+            Me.Adapter.UpdateCommand.Parameters(32).Value = CType(PatientId,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -1510,6 +1723,9 @@ Namespace LilypadGardensDataSetTableAdapters
                     ByVal FirstName As String,  _
                     ByVal Sex As String,  _
                     ByVal Address As String,  _
+                    ByVal City As String,  _
+                    ByVal State As String,  _
+                    ByVal Zip As Global.System.Nullable(Of Decimal),  _
                     ByVal Phone As String,  _
                     ByVal Birthday As Date,  _
                     ByVal SSN As String,  _
@@ -1521,13 +1737,16 @@ Namespace LilypadGardensDataSetTableAdapters
                     ByVal Original_FirstName As String,  _
                     ByVal Original_Sex As String,  _
                     ByVal Original_Address As String,  _
+                    ByVal Original_City As String,  _
+                    ByVal Original_State As String,  _
+                    ByVal Original_Zip As Global.System.Nullable(Of Decimal),  _
                     ByVal Original_Phone As String,  _
                     ByVal Original_Birthday As Date,  _
                     ByVal Original_SSN As String,  _
                     ByVal Original_Symptoms As String,  _
                     ByVal Original_DateVisited As Date,  _
                     ByVal Original_FamilyHistory As String) As Integer
-            Return Me.Update(LastName, FirstName, Sex, Address, Phone, Birthday, SSN, Symptoms, DateVisited, FamilyHistory, Original_PatientId, Original_LastName, Original_FirstName, Original_Sex, Original_Address, Original_Phone, Original_Birthday, Original_SSN, Original_Symptoms, Original_DateVisited, Original_FamilyHistory, Original_PatientId)
+            Return Me.Update(LastName, FirstName, Sex, Address, City, State, Zip, Phone, Birthday, SSN, Symptoms, DateVisited, FamilyHistory, Original_PatientId, Original_LastName, Original_FirstName, Original_Sex, Original_Address, Original_City, Original_State, Original_Zip, Original_Phone, Original_Birthday, Original_SSN, Original_Symptoms, Original_DateVisited, Original_FamilyHistory, Original_PatientId)
         End Function
     End Class
     
@@ -1544,7 +1763,7 @@ Namespace LilypadGardensDataSetTableAdapters
         
         Private _updateOrder As UpdateOrderOption
         
-        Private _patientsTableAdapter As PatientsTableAdapter
+        Private _patientTableAdapter As PatientTableAdapter
         
         Private _backupDataSetBeforeUpdate As Boolean
         
@@ -1566,12 +1785,12 @@ Namespace LilypadGardensDataSetTableAdapters
          Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
             "a", "System.Drawing.Design.UITypeEditor")>  _
-        Public Property PatientsTableAdapter() As PatientsTableAdapter
+        Public Property PatientTableAdapter() As PatientTableAdapter
             Get
-                Return Me._patientsTableAdapter
+                Return Me._patientTableAdapter
             End Get
             Set
-                Me._patientsTableAdapter = value
+                Me._patientTableAdapter = value
             End Set
         End Property
         
@@ -1594,9 +1813,9 @@ Namespace LilypadGardensDataSetTableAdapters
                 If (Not (Me._connection) Is Nothing) Then
                     Return Me._connection
                 End If
-                If ((Not (Me._patientsTableAdapter) Is Nothing)  _
-                            AndAlso (Not (Me._patientsTableAdapter.Connection) Is Nothing)) Then
-                    Return Me._patientsTableAdapter.Connection
+                If ((Not (Me._patientTableAdapter) Is Nothing)  _
+                            AndAlso (Not (Me._patientTableAdapter.Connection) Is Nothing)) Then
+                    Return Me._patientTableAdapter.Connection
                 End If
                 Return Nothing
             End Get
@@ -1611,7 +1830,7 @@ Namespace LilypadGardensDataSetTableAdapters
         Public ReadOnly Property TableAdapterInstanceCount() As Integer
             Get
                 Dim count As Integer = 0
-                If (Not (Me._patientsTableAdapter) Is Nothing) Then
+                If (Not (Me._patientTableAdapter) Is Nothing) Then
                     count = (count + 1)
                 End If
                 Return count
@@ -1625,12 +1844,12 @@ Namespace LilypadGardensDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Function UpdateUpdatedRows(ByVal dataSet As LilypadGardensDataSet, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow), ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
-            If (Not (Me._patientsTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.Patients.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+            If (Not (Me._patientTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.Patient.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._patientsTableAdapter.Update(updatedRows))
+                    result = (result + Me._patientTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -1644,11 +1863,11 @@ Namespace LilypadGardensDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Function UpdateInsertedRows(ByVal dataSet As LilypadGardensDataSet, ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
-            If (Not (Me._patientsTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.Patients.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+            If (Not (Me._patientTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.Patient.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
                             AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._patientsTableAdapter.Update(addedRows))
+                    result = (result + Me._patientTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
@@ -1662,11 +1881,11 @@ Namespace LilypadGardensDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Function UpdateDeletedRows(ByVal dataSet As LilypadGardensDataSet, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
-            If (Not (Me._patientsTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.Patients.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+            If (Not (Me._patientTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.Patient.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._patientsTableAdapter.Update(deletedRows))
+                    result = (result + Me._patientTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -1711,8 +1930,8 @@ Namespace LilypadGardensDataSetTableAdapters
             If (dataSet.HasChanges = false) Then
                 Return 0
             End If
-            If ((Not (Me._patientsTableAdapter) Is Nothing)  _
-                        AndAlso (Me.MatchTableAdapterConnection(Me._patientsTableAdapter.Connection) = false)) Then
+            If ((Not (Me._patientTableAdapter) Is Nothing)  _
+                        AndAlso (Me.MatchTableAdapterConnection(Me._patientTableAdapter.Connection) = false)) Then
                 Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
                         "tring.")
             End If
@@ -1748,13 +1967,13 @@ Namespace LilypadGardensDataSetTableAdapters
             Try 
                 '---- Prepare for update -----------
                 '
-                If (Not (Me._patientsTableAdapter) Is Nothing) Then
-                    revertConnections.Add(Me._patientsTableAdapter, Me._patientsTableAdapter.Connection)
-                    Me._patientsTableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
-                    Me._patientsTableAdapter.Transaction = CType(workTransaction,Global.System.Data.SqlClient.SqlTransaction)
-                    If Me._patientsTableAdapter.Adapter.AcceptChangesDuringUpdate Then
-                        Me._patientsTableAdapter.Adapter.AcceptChangesDuringUpdate = false
-                        adaptersWithAcceptChangesDuringUpdate.Add(Me._patientsTableAdapter.Adapter)
+                If (Not (Me._patientTableAdapter) Is Nothing) Then
+                    revertConnections.Add(Me._patientTableAdapter, Me._patientTableAdapter.Connection)
+                    Me._patientTableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
+                    Me._patientTableAdapter.Transaction = CType(workTransaction,Global.System.Data.SqlClient.SqlTransaction)
+                    If Me._patientTableAdapter.Adapter.AcceptChangesDuringUpdate Then
+                        Me._patientTableAdapter.Adapter.AcceptChangesDuringUpdate = false
+                        adaptersWithAcceptChangesDuringUpdate.Add(Me._patientTableAdapter.Adapter)
                     End If
                 End If
                 '
@@ -1817,9 +2036,9 @@ Namespace LilypadGardensDataSetTableAdapters
                 If workConnOpened Then
                     workConnection.Close
                 End If
-                If (Not (Me._patientsTableAdapter) Is Nothing) Then
-                    Me._patientsTableAdapter.Connection = CType(revertConnections(Me._patientsTableAdapter),Global.System.Data.SqlClient.SqlConnection)
-                    Me._patientsTableAdapter.Transaction = Nothing
+                If (Not (Me._patientTableAdapter) Is Nothing) Then
+                    Me._patientTableAdapter.Connection = CType(revertConnections(Me._patientTableAdapter),Global.System.Data.SqlClient.SqlConnection)
+                    Me._patientTableAdapter.Transaction = Nothing
                 End If
                 If (0 < adaptersWithAcceptChangesDuringUpdate.Count) Then
                     Dim adapters((adaptersWithAcceptChangesDuringUpdate.Count) - 1) As Global.System.Data.Common.DataAdapter

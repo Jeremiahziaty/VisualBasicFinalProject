@@ -37,15 +37,18 @@ Partial Class Continuing
         Me.chkcheckup = New System.Windows.Forms.CheckBox()
         Me.chcksportphysical = New System.Windows.Forms.CheckBox()
         Me.txtName = New System.Windows.Forms.TextBox()
-        Me.txtPatientId = New System.Windows.Forms.TextBox()
         Me.LilypadGardensDataSet = New VisualBasicFinalProject.LilypadGardensDataSet()
-        Me.PatientsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.PatientsTableAdapter = New VisualBasicFinalProject.LilypadGardensDataSetTableAdapters.PatientsTableAdapter()
-        Me.PatientsBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.btnSave = New System.Windows.Forms.Button()
+        Me.PatientTableAdapter = New VisualBasicFinalProject.LilypadGardensDataSetTableAdapters.PatientTableAdapter()
+        Me.BindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.TableAdapterManager = New VisualBasicFinalProject.LilypadGardensDataSetTableAdapters.TableAdapterManager()
+        Me.PatientBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.errProvider = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.gbSymptoms.SuspendLayout()
         CType(Me.LilypadGardensDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PatientsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PatientsBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PatientBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.errProvider, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'gbSymptoms
@@ -191,53 +194,60 @@ Partial Class Continuing
         'txtName
         '
         Me.txtName.Enabled = False
-        Me.txtName.Location = New System.Drawing.Point(95, 15)
+        Me.txtName.Location = New System.Drawing.Point(139, 12)
         Me.txtName.Name = "txtName"
-        Me.txtName.Size = New System.Drawing.Size(180, 20)
+        Me.txtName.Size = New System.Drawing.Size(139, 20)
         Me.txtName.TabIndex = 4
-        '
-        'txtPatientId
-        '
-        Me.txtPatientId.DataBindings.Add(New System.Windows.Forms.Binding("Tag", Me.PatientsBindingSource1, "PatientId", True))
-        Me.txtPatientId.Enabled = False
-        Me.txtPatientId.Location = New System.Drawing.Point(135, 41)
-        Me.txtPatientId.Name = "txtPatientId"
-        Me.txtPatientId.Size = New System.Drawing.Size(100, 20)
-        Me.txtPatientId.TabIndex = 3
         '
         'LilypadGardensDataSet
         '
         Me.LilypadGardensDataSet.DataSetName = "LilypadGardensDataSet"
         Me.LilypadGardensDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'PatientsBindingSource
+        'btnSave
         '
-        Me.PatientsBindingSource.DataMember = "Patients"
+        Me.btnSave.Location = New System.Drawing.Point(154, 387)
+        Me.btnSave.Name = "btnSave"
+        Me.btnSave.Size = New System.Drawing.Size(88, 23)
+        Me.btnSave.TabIndex = 6
+        Me.btnSave.Text = "Save"
+        Me.btnSave.UseVisualStyleBackColor = True
         '
-        'PatientsTableAdapter
+        'PatientTableAdapter
         '
-        Me.PatientsTableAdapter.ClearBeforeFill = True
+        Me.PatientTableAdapter.ClearBeforeFill = True
         '
-        'PatientsBindingSource1
+        'TableAdapterManager
         '
-        Me.PatientsBindingSource1.DataMember = "Patients"
-        Me.PatientsBindingSource1.DataSource = Me.LilypadGardensDataSet
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.PatientTableAdapter = Me.PatientTableAdapter
+        Me.TableAdapterManager.UpdateOrder = VisualBasicFinalProject.LilypadGardensDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        '
+        'PatientBindingSource
+        '
+        Me.PatientBindingSource.DataMember = "Patient"
+        Me.PatientBindingSource.DataSource = Me.LilypadGardensDataSet
+        '
+        'errProvider
+        '
+        Me.errProvider.ContainerControl = Me
         '
         'Continuing
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(407, 390)
+        Me.ClientSize = New System.Drawing.Size(407, 422)
+        Me.Controls.Add(Me.btnSave)
         Me.Controls.Add(Me.gbSymptoms)
         Me.Controls.Add(Me.txtName)
-        Me.Controls.Add(Me.txtPatientId)
         Me.Name = "Continuing"
         Me.Text = "Continuing"
         Me.gbSymptoms.ResumeLayout(False)
         Me.gbSymptoms.PerformLayout()
         CType(Me.LilypadGardensDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PatientsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PatientsBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PatientBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.errProvider, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -257,9 +267,11 @@ Partial Class Continuing
     Friend WithEvents chkcheckup As CheckBox
     Friend WithEvents chcksportphysical As CheckBox
     Friend WithEvents txtName As TextBox
-    Friend WithEvents txtPatientId As TextBox
     Friend WithEvents LilypadGardensDataSet As LilypadGardensDataSet
-    Friend WithEvents PatientsBindingSource As BindingSource
-    Friend WithEvents PatientsTableAdapter As LilypadGardensDataSetTableAdapters.PatientsTableAdapter
-    Friend WithEvents PatientsBindingSource1 As BindingSource
+    Friend WithEvents btnSave As Button
+    Friend WithEvents PatientTableAdapter As LilypadGardensDataSetTableAdapters.PatientTableAdapter
+    Friend WithEvents BindingSource As BindingSource
+    Friend WithEvents TableAdapterManager As LilypadGardensDataSetTableAdapters.TableAdapterManager
+    Friend WithEvents PatientBindingSource As BindingSource
+    Friend WithEvents errProvider As ErrorProvider
 End Class

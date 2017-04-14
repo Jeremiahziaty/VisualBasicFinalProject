@@ -27,22 +27,22 @@ VisualBasicFinalProject
 Represents a strongly typed in-memory cache of data.
 </summary>
 </member>
-<member name="T:VisualBasicFinalProject.LilypadGardensDataSet.PatientsDataTable">
+<member name="T:VisualBasicFinalProject.LilypadGardensDataSet.PatientDataTable">
 <summary>
 Represents the strongly named DataTable class.
 </summary>
 </member>
-<member name="T:VisualBasicFinalProject.LilypadGardensDataSet.PatientsRow">
+<member name="T:VisualBasicFinalProject.LilypadGardensDataSet.PatientRow">
 <summary>
 Represents strongly named DataRow class.
 </summary>
 </member>
-<member name="T:VisualBasicFinalProject.LilypadGardensDataSet.PatientsRowChangeEvent">
+<member name="T:VisualBasicFinalProject.LilypadGardensDataSet.PatientRowChangeEvent">
 <summary>
 Row event argument class
 </summary>
 </member>
-<member name="T:VisualBasicFinalProject.LilypadGardensDataSetTableAdapters.PatientsTableAdapter">
+<member name="T:VisualBasicFinalProject.LilypadGardensDataSetTableAdapters.PatientTableAdapter">
 <summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>

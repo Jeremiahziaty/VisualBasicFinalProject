@@ -11,16 +11,10 @@
         ElseIf txtBirthday.Text.Length = 0 Then
             errProvider.SetError(txtBirthday, "birthday cannot be blank")
         Else
-            PatientsTableAdapter.FindPatient(LilypadGardensDataSet.Patients, txtLastName.Text, txtBirthday.Text)
+            PatientTableAdapter.FindPatient(LilypadGardensDataSet.Patient, txtLastName.Text, txtBirthday.Text)
         End If
 
 
-
     End Sub
 
-    Private Sub FindPatient_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'LilypadGardensDataSet1.Patients' table. You can move, or remove it, as needed.
-        ' Me.PatientsTableAdapter.Fill(Me.LilypadGardensDataSet1.Patients)
-
-    End Sub
 End Class

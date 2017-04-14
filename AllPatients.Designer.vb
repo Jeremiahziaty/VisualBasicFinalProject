@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class AllPatients
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,60 +20,45 @@ Partial Class AllPatients
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
-        Me.lblStatus = New System.Windows.Forms.ToolStripStatusLabel()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CloseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.dgvPatients = New System.Windows.Forms.DataGridView()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.LilypadGardensDataSet = New VisualBasicFinalProject.LilypadGardensDataSet()
+        Me.PatientTableAdapter = New VisualBasicFinalProject.LilypadGardensDataSetTableAdapters.PatientTableAdapter()
+        Me.LilypadGardensDataSet1 = New VisualBasicFinalProject.LilypadGardensDataSet()
+        Me.PatientBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.PatientIdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LastNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FirstNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.SexDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.AddressDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CityDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.StateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ZipDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PhoneDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BirthdayDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.SSNDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.SymptomsDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DateVisitedDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FamilyHistoryDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PatientsBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.LilypadGardensDataSet1 = New VisualBasicFinalProject.LilypadGardensDataSet()
-        Me.PatientsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.PatientsTableAdapter = New VisualBasicFinalProject.LilypadGardensDataSetTableAdapters.PatientsTableAdapter()
-        Me.LilypadGardensDataSet = New VisualBasicFinalProject.LilypadGardensDataSet()
-        Me.StatusStrip1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
-        CType(Me.dgvPatients, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PatientsBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LilypadGardensDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PatientsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LilypadGardensDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LilypadGardensDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PatientBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'StatusStrip1
-        '
-        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.lblStatus})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 371)
-        Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(784, 22)
-        Me.StatusStrip1.TabIndex = 30
-        Me.StatusStrip1.Text = "StatusStrip1"
-        '
-        'lblStatus
-        '
-        Me.lblStatus.Name = "lblStatus"
-        Me.lblStatus.Size = New System.Drawing.Size(0, 17)
         '
         'MenuStrip1
         '
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(784, 24)
-        Me.MenuStrip1.TabIndex = 28
+        Me.MenuStrip1.Size = New System.Drawing.Size(560, 24)
+        Me.MenuStrip1.TabIndex = 12
         Me.MenuStrip1.Text = "MenuStrip1"
         '
         'FileToolStripMenuItem
@@ -89,25 +74,38 @@ Partial Class AllPatients
         Me.CloseToolStripMenuItem.Size = New System.Drawing.Size(103, 22)
         Me.CloseToolStripMenuItem.Text = "&Close"
         '
-        'dgvPatients
+        'DataGridView1
         '
-        Me.dgvPatients.AllowUserToAddRows = False
-        Me.dgvPatients.AllowUserToDeleteRows = False
-        Me.dgvPatients.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.dgvPatients.AutoGenerateColumns = False
-        Me.dgvPatients.BackgroundColor = System.Drawing.SystemColors.Control
-        Me.dgvPatients.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.dgvPatients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvPatients.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.PatientIdDataGridViewTextBoxColumn, Me.NameDataGridViewTextBoxColumn, Me.SexDataGridViewTextBoxColumn, Me.AddressDataGridViewTextBoxColumn, Me.PhoneDataGridViewTextBoxColumn, Me.BirthdayDataGridViewTextBoxColumn, Me.SSNDataGridViewTextBoxColumn, Me.SymptomsDataGridViewTextBoxColumn, Me.DateVisitedDataGridViewTextBoxColumn, Me.FamilyHistoryDataGridViewTextBoxColumn})
-        Me.dgvPatients.DataSource = Me.PatientsBindingSource1
-        Me.dgvPatients.Location = New System.Drawing.Point(0, 58)
-        Me.dgvPatients.Name = "dgvPatients"
-        Me.dgvPatients.ReadOnly = True
-        Me.dgvPatients.RowHeadersVisible = False
-        Me.dgvPatients.Size = New System.Drawing.Size(772, 213)
-        Me.dgvPatients.TabIndex = 29
+        Me.DataGridView1.AllowUserToAddRows = False
+        Me.DataGridView1.AllowUserToDeleteRows = False
+        Me.DataGridView1.AutoGenerateColumns = False
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.PatientIdDataGridViewTextBoxColumn, Me.LastNameDataGridViewTextBoxColumn, Me.FirstNameDataGridViewTextBoxColumn, Me.SexDataGridViewTextBoxColumn, Me.AddressDataGridViewTextBoxColumn, Me.CityDataGridViewTextBoxColumn, Me.StateDataGridViewTextBoxColumn, Me.ZipDataGridViewTextBoxColumn, Me.PhoneDataGridViewTextBoxColumn, Me.BirthdayDataGridViewTextBoxColumn, Me.SSNDataGridViewTextBoxColumn, Me.SymptomsDataGridViewTextBoxColumn, Me.DateVisitedDataGridViewTextBoxColumn, Me.FamilyHistoryDataGridViewTextBoxColumn})
+        Me.DataGridView1.DataSource = Me.PatientBindingSource
+        Me.DataGridView1.Location = New System.Drawing.Point(0, 37)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.ReadOnly = True
+        Me.DataGridView1.Size = New System.Drawing.Size(560, 375)
+        Me.DataGridView1.TabIndex = 13
+        '
+        'LilypadGardensDataSet
+        '
+        Me.LilypadGardensDataSet.DataSetName = "LilypadGardensDataSet"
+        Me.LilypadGardensDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'PatientTableAdapter
+        '
+        Me.PatientTableAdapter.ClearBeforeFill = True
+        '
+        'LilypadGardensDataSet1
+        '
+        Me.LilypadGardensDataSet1.DataSetName = "LilypadGardensDataSet"
+        Me.LilypadGardensDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'PatientBindingSource
+        '
+        Me.PatientBindingSource.DataMember = "Patient"
+        Me.PatientBindingSource.DataSource = Me.LilypadGardensDataSet1
         '
         'PatientIdDataGridViewTextBoxColumn
         '
@@ -116,12 +114,19 @@ Partial Class AllPatients
         Me.PatientIdDataGridViewTextBoxColumn.Name = "PatientIdDataGridViewTextBoxColumn"
         Me.PatientIdDataGridViewTextBoxColumn.ReadOnly = True
         '
-        'NameDataGridViewTextBoxColumn
+        'LastNameDataGridViewTextBoxColumn
         '
-        Me.NameDataGridViewTextBoxColumn.DataPropertyName = "Name"
-        Me.NameDataGridViewTextBoxColumn.HeaderText = "Name"
-        Me.NameDataGridViewTextBoxColumn.Name = "NameDataGridViewTextBoxColumn"
-        Me.NameDataGridViewTextBoxColumn.ReadOnly = True
+        Me.LastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName"
+        Me.LastNameDataGridViewTextBoxColumn.HeaderText = "LastName"
+        Me.LastNameDataGridViewTextBoxColumn.Name = "LastNameDataGridViewTextBoxColumn"
+        Me.LastNameDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'FirstNameDataGridViewTextBoxColumn
+        '
+        Me.FirstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName"
+        Me.FirstNameDataGridViewTextBoxColumn.HeaderText = "FirstName"
+        Me.FirstNameDataGridViewTextBoxColumn.Name = "FirstNameDataGridViewTextBoxColumn"
+        Me.FirstNameDataGridViewTextBoxColumn.ReadOnly = True
         '
         'SexDataGridViewTextBoxColumn
         '
@@ -136,6 +141,27 @@ Partial Class AllPatients
         Me.AddressDataGridViewTextBoxColumn.HeaderText = "Address"
         Me.AddressDataGridViewTextBoxColumn.Name = "AddressDataGridViewTextBoxColumn"
         Me.AddressDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'CityDataGridViewTextBoxColumn
+        '
+        Me.CityDataGridViewTextBoxColumn.DataPropertyName = "City"
+        Me.CityDataGridViewTextBoxColumn.HeaderText = "City"
+        Me.CityDataGridViewTextBoxColumn.Name = "CityDataGridViewTextBoxColumn"
+        Me.CityDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'StateDataGridViewTextBoxColumn
+        '
+        Me.StateDataGridViewTextBoxColumn.DataPropertyName = "State"
+        Me.StateDataGridViewTextBoxColumn.HeaderText = "State"
+        Me.StateDataGridViewTextBoxColumn.Name = "StateDataGridViewTextBoxColumn"
+        Me.StateDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'ZipDataGridViewTextBoxColumn
+        '
+        Me.ZipDataGridViewTextBoxColumn.DataPropertyName = "Zip"
+        Me.ZipDataGridViewTextBoxColumn.HeaderText = "Zip"
+        Me.ZipDataGridViewTextBoxColumn.Name = "ZipDataGridViewTextBoxColumn"
+        Me.ZipDataGridViewTextBoxColumn.ReadOnly = True
         '
         'PhoneDataGridViewTextBoxColumn
         '
@@ -179,68 +205,42 @@ Partial Class AllPatients
         Me.FamilyHistoryDataGridViewTextBoxColumn.Name = "FamilyHistoryDataGridViewTextBoxColumn"
         Me.FamilyHistoryDataGridViewTextBoxColumn.ReadOnly = True
         '
-        'PatientsBindingSource1
-        '
-        Me.PatientsBindingSource1.DataMember = "Patients"
-        Me.PatientsBindingSource1.DataSource = Me.LilypadGardensDataSet1
-        '
-        'LilypadGardensDataSet1
-        '
-        Me.LilypadGardensDataSet1.DataSetName = "LilypadGardensDataSet"
-        Me.LilypadGardensDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'PatientsBindingSource
-        '
-        Me.PatientsBindingSource.DataMember = "Patients"
-        '
-        'PatientsTableAdapter
-        '
-        Me.PatientsTableAdapter.ClearBeforeFill = True
-        '
-        'LilypadGardensDataSet
-        '
-        Me.LilypadGardensDataSet.DataSetName = "LilypadGardensDataSet"
-        Me.LilypadGardensDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'AllPatients
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(784, 393)
-        Me.Controls.Add(Me.StatusStrip1)
+        Me.ClientSize = New System.Drawing.Size(560, 410)
+        Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.MenuStrip1)
-        Me.Controls.Add(Me.dgvPatients)
         Me.Name = "AllPatients"
         Me.Text = "AllPatients"
-        Me.StatusStrip1.ResumeLayout(False)
-        Me.StatusStrip1.PerformLayout()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
-        CType(Me.dgvPatients, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PatientsBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LilypadGardensDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PatientsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LilypadGardensDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LilypadGardensDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PatientBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents StatusStrip1 As StatusStrip
-    Friend WithEvents lblStatus As ToolStripStatusLabel
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents FileToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CloseToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents dgvPatients As DataGridView
-    Friend WithEvents PatientsBindingSource As BindingSource
-    Friend WithEvents PatientsTableAdapter As LilypadGardensDataSetTableAdapters.PatientsTableAdapter
+    Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents LilypadGardensDataSet As LilypadGardensDataSet
+    Friend WithEvents PatientTableAdapter As LilypadGardensDataSetTableAdapters.PatientTableAdapter
     Friend WithEvents LilypadGardensDataSet1 As LilypadGardensDataSet
-    Friend WithEvents PatientsBindingSource1 As BindingSource
+    Friend WithEvents PatientBindingSource As BindingSource
     Friend WithEvents PatientIdDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents NameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents LastNameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents FirstNameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents SexDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents AddressDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents CityDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents StateDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents ZipDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents PhoneDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents BirthdayDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents SSNDataGridViewTextBoxColumn As DataGridViewTextBoxColumn

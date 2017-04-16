@@ -10,7 +10,7 @@
         ' Me.RegistrationBindingSource.DataMember = "Registration"
 
 
-        With cboCustomer.ComboBox
+        With CboPatient.ComboBox
             .DataSource = mPatient.items
             .DisplayMember = "Patient"
             .ValueMember = "PatientId"
@@ -19,7 +19,11 @@
         End With
     End Sub
 
-    Private Sub cboCustomer_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboCustomer.SelectedIndexChanged
-        Me.RegistrationBindingSource.Position = Me.cboCustomer.SelectedIndex
+    Private Sub cboCustomer_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CboPatient.SelectedIndexChanged
+        Me.RegistrationBindingSource.Position = Me.CboPatient.SelectedIndex
+    End Sub
+
+    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
+        Me.Close()
     End Sub
 End Class

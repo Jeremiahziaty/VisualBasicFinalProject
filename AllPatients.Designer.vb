@@ -26,11 +26,10 @@ Partial Class AllPatients
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CloseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.dgvAppointments = New System.Windows.Forms.DataGridView()
         Me.LilypadGardensDataSet = New VisualBasicFinalProject.LilypadGardensDataSet()
-        Me.PatientTableAdapter = New VisualBasicFinalProject.LilypadGardensDataSetTableAdapters.PatientTableAdapter()
-        Me.LilypadGardensDataSet1 = New VisualBasicFinalProject.LilypadGardensDataSet()
         Me.PatientBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.PatientTableAdapter = New VisualBasicFinalProject.LilypadGardensDataSetTableAdapters.PatientTableAdapter()
         Me.PatientIdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.LastNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FirstNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -46,9 +45,8 @@ Partial Class AllPatients
         Me.DateVisitedDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FamilyHistoryDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MenuStrip1.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvAppointments, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LilypadGardensDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LilypadGardensDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PatientBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -57,7 +55,7 @@ Partial Class AllPatients
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(780, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1006, 24)
         Me.MenuStrip1.TabIndex = 12
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -74,38 +72,38 @@ Partial Class AllPatients
         Me.CloseToolStripMenuItem.Size = New System.Drawing.Size(103, 22)
         Me.CloseToolStripMenuItem.Text = "&Close"
         '
-        'DataGridView1
+        'dgvAppointments
         '
-        Me.DataGridView1.AllowUserToAddRows = False
-        Me.DataGridView1.AllowUserToDeleteRows = False
-        Me.DataGridView1.AutoGenerateColumns = False
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.PatientIdDataGridViewTextBoxColumn, Me.LastNameDataGridViewTextBoxColumn, Me.FirstNameDataGridViewTextBoxColumn, Me.SexDataGridViewTextBoxColumn, Me.AddressDataGridViewTextBoxColumn, Me.CityDataGridViewTextBoxColumn, Me.StateDataGridViewTextBoxColumn, Me.ZipDataGridViewTextBoxColumn, Me.PhoneDataGridViewTextBoxColumn, Me.BirthdayDataGridViewTextBoxColumn, Me.SSNDataGridViewTextBoxColumn, Me.SymptomsDataGridViewTextBoxColumn, Me.DateVisitedDataGridViewTextBoxColumn, Me.FamilyHistoryDataGridViewTextBoxColumn})
-        Me.DataGridView1.DataSource = Me.PatientBindingSource
-        Me.DataGridView1.Location = New System.Drawing.Point(0, 37)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.Size = New System.Drawing.Size(780, 375)
-        Me.DataGridView1.TabIndex = 13
+        Me.dgvAppointments.AllowUserToAddRows = False
+        Me.dgvAppointments.AllowUserToDeleteRows = False
+        Me.dgvAppointments.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.dgvAppointments.AutoGenerateColumns = False
+        Me.dgvAppointments.BackgroundColor = System.Drawing.SystemColors.Control
+        Me.dgvAppointments.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.dgvAppointments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvAppointments.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.PatientIdDataGridViewTextBoxColumn, Me.LastNameDataGridViewTextBoxColumn, Me.FirstNameDataGridViewTextBoxColumn, Me.SexDataGridViewTextBoxColumn, Me.AddressDataGridViewTextBoxColumn, Me.CityDataGridViewTextBoxColumn, Me.StateDataGridViewTextBoxColumn, Me.ZipDataGridViewTextBoxColumn, Me.PhoneDataGridViewTextBoxColumn, Me.BirthdayDataGridViewTextBoxColumn, Me.SSNDataGridViewTextBoxColumn, Me.SymptomsDataGridViewTextBoxColumn, Me.DateVisitedDataGridViewTextBoxColumn, Me.FamilyHistoryDataGridViewTextBoxColumn})
+        Me.dgvAppointments.DataSource = Me.PatientBindingSource
+        Me.dgvAppointments.Location = New System.Drawing.Point(0, 27)
+        Me.dgvAppointments.Name = "dgvAppointments"
+        Me.dgvAppointments.ReadOnly = True
+        Me.dgvAppointments.Size = New System.Drawing.Size(1006, 349)
+        Me.dgvAppointments.TabIndex = 13
         '
         'LilypadGardensDataSet
         '
         Me.LilypadGardensDataSet.DataSetName = "LilypadGardensDataSet"
         Me.LilypadGardensDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'PatientTableAdapter
-        '
-        Me.PatientTableAdapter.ClearBeforeFill = True
-        '
-        'LilypadGardensDataSet1
-        '
-        Me.LilypadGardensDataSet1.DataSetName = "LilypadGardensDataSet"
-        Me.LilypadGardensDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'PatientBindingSource
         '
         Me.PatientBindingSource.DataMember = "Patient"
-        Me.PatientBindingSource.DataSource = Me.LilypadGardensDataSet1
+        Me.PatientBindingSource.DataSource = Me.LilypadGardensDataSet
+        '
+        'PatientTableAdapter
+        '
+        Me.PatientTableAdapter.ClearBeforeFill = True
         '
         'PatientIdDataGridViewTextBoxColumn
         '
@@ -209,16 +207,15 @@ Partial Class AllPatients
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(780, 410)
-        Me.Controls.Add(Me.DataGridView1)
+        Me.ClientSize = New System.Drawing.Size(1006, 371)
+        Me.Controls.Add(Me.dgvAppointments)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Name = "AllPatients"
         Me.Text = "AllPatients"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvAppointments, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LilypadGardensDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LilypadGardensDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PatientBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -228,11 +225,10 @@ Partial Class AllPatients
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents FileToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CloseToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents dgvAppointments As DataGridView
     Friend WithEvents LilypadGardensDataSet As LilypadGardensDataSet
-    Friend WithEvents PatientTableAdapter As LilypadGardensDataSetTableAdapters.PatientTableAdapter
-    Friend WithEvents LilypadGardensDataSet1 As LilypadGardensDataSet
     Friend WithEvents PatientBindingSource As BindingSource
+    Friend WithEvents PatientTableAdapter As LilypadGardensDataSetTableAdapters.PatientTableAdapter
     Friend WithEvents PatientIdDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents LastNameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents FirstNameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn

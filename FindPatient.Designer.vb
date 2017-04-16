@@ -32,11 +32,6 @@ Partial Class FindPatient
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtBirthday = New System.Windows.Forms.TextBox()
         Me.dgvPatients = New System.Windows.Forms.DataGridView()
-        Me.errProvider = New System.Windows.Forms.ErrorProvider(Me.components)
-        Me.PatientTableAdapter = New VisualBasicFinalProject.LilypadGardensDataSetTableAdapters.PatientTableAdapter()
-        Me.BindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.LilypadGardensDataSet = New VisualBasicFinalProject.LilypadGardensDataSet()
-        Me.PatientBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.PatientIdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.LastNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FirstNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -51,12 +46,17 @@ Partial Class FindPatient
         Me.SymptomsDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DateVisitedDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FamilyHistoryDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PatientBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.LilypadGardensDataSet = New VisualBasicFinalProject.LilypadGardensDataSet()
+        Me.errProvider = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.PatientTableAdapter = New VisualBasicFinalProject.LilypadGardensDataSetTableAdapters.PatientTableAdapter()
+        Me.BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.MenuStrip1.SuspendLayout()
         CType(Me.dgvPatients, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PatientBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LilypadGardensDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.errProvider, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LilypadGardensDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PatientBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnGo
@@ -126,9 +126,8 @@ Partial Class FindPatient
         '
         Me.dgvPatients.AllowUserToAddRows = False
         Me.dgvPatients.AllowUserToDeleteRows = False
-        Me.dgvPatients.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvPatients.AutoGenerateColumns = False
+        Me.dgvPatients.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvPatients.BackgroundColor = System.Drawing.SystemColors.Control
         Me.dgvPatients.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.dgvPatients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
@@ -140,24 +139,6 @@ Partial Class FindPatient
         Me.dgvPatients.RowHeadersVisible = False
         Me.dgvPatients.Size = New System.Drawing.Size(1001, 295)
         Me.dgvPatients.TabIndex = 17
-        '
-        'errProvider
-        '
-        Me.errProvider.ContainerControl = Me
-        '
-        'PatientTableAdapter
-        '
-        Me.PatientTableAdapter.ClearBeforeFill = True
-        '
-        'LilypadGardensDataSet
-        '
-        Me.LilypadGardensDataSet.DataSetName = "LilypadGardensDataSet"
-        Me.LilypadGardensDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'PatientBindingSource
-        '
-        Me.PatientBindingSource.DataMember = "Patient"
-        Me.PatientBindingSource.DataSource = Me.LilypadGardensDataSet
         '
         'PatientIdDataGridViewTextBoxColumn
         '
@@ -257,6 +238,24 @@ Partial Class FindPatient
         Me.FamilyHistoryDataGridViewTextBoxColumn.Name = "FamilyHistoryDataGridViewTextBoxColumn"
         Me.FamilyHistoryDataGridViewTextBoxColumn.ReadOnly = True
         '
+        'PatientBindingSource
+        '
+        Me.PatientBindingSource.DataMember = "Patient"
+        Me.PatientBindingSource.DataSource = Me.LilypadGardensDataSet
+        '
+        'LilypadGardensDataSet
+        '
+        Me.LilypadGardensDataSet.DataSetName = "LilypadGardensDataSet"
+        Me.LilypadGardensDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'errProvider
+        '
+        Me.errProvider.ContainerControl = Me
+        '
+        'PatientTableAdapter
+        '
+        Me.PatientTableAdapter.ClearBeforeFill = True
+        '
         'FindPatient
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -274,10 +273,10 @@ Partial Class FindPatient
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         CType(Me.dgvPatients, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PatientBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LilypadGardensDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.errProvider, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LilypadGardensDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PatientBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

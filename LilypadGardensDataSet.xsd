@@ -206,34 +206,9 @@ SELECT Id, LastName, FirstName, Phone, Chamber, Symptoms FROM Doctores WHERE (Id
             </Mappings>
             <Sources />
           </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="BillingTableAdapter" GeneratorDataComponentClassName="BillingTableAdapter" Name="Billing" UserDataComponentName="BillingTableAdapter">
-            <MainSource>
-              <DbSource ConnectionRef="LilypadGardensConnectionString (MySettings)" DbObjectName="dbo.Billing" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        Billing.RegisterationId, Patient.LastName + ' , ' + Patient.FirstName AS FullName, Billing.Billing_Date, Billing.Amount, Billing.InsuranceName, Billing.Insurance_MemberID, Billing.[Insurance Address]
-FROM            Billing INNER JOIN
-                         Patient ON Billing.Patient_Id = Patient.PatientId
-ORDER BY Patient.LastName</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-            </MainSource>
-            <Mappings>
-              <Mapping SourceColumn="RegisterationId" DataSetColumn="RegisterationId" />
-              <Mapping SourceColumn="FullName" DataSetColumn="FullName" />
-              <Mapping SourceColumn="Billing_Date" DataSetColumn="Billing_Date" />
-              <Mapping SourceColumn="Amount" DataSetColumn="Amount" />
-              <Mapping SourceColumn="InsuranceName" DataSetColumn="InsuranceName" />
-              <Mapping SourceColumn="Insurance_MemberID" DataSetColumn="Insurance_MemberID" />
-              <Mapping SourceColumn="Insurance Address" DataSetColumn="Insurance Address" />
-            </Mappings>
-            <Sources />
-          </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="RegistrationTableAdapter" GeneratorDataComponentClassName="RegistrationTableAdapter" Name="Registration" UserDataComponentName="RegistrationTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="LilypadGardensConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="LilypadGardensConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        Patient.PatientId, Patient.LastName + ', ' + Patient.FirstName AS Patient, Patient.Birthday, Doctores.LastName + ',  ' + Doctores.FirstName AS Doctores, Doctores.Chamber, Patient.Symptoms
@@ -256,6 +231,28 @@ WHERE        (Patient.Symptoms LIKE Doctores.Symptoms + '%') OR
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="BillingTableAdapter" GeneratorDataComponentClassName="BillingTableAdapter" Name="Billing" UserDataComponentName="BillingTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="LilypadGardensConnectionString (MySettings)" DbObjectName="dbo.Billing" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Billing.RegisterationId, Patient.LastName + ' , ' + Patient.FirstName AS FullName, Billing.Billing_Date, Billing.Amount
+FROM            Billing INNER JOIN
+                         Patient ON Billing.Patient_Id = Patient.PatientId
+ORDER BY Patient.LastName</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="RegisterationId" DataSetColumn="RegisterationId" />
+              <Mapping SourceColumn="FullName" DataSetColumn="FullName" />
+              <Mapping SourceColumn="Billing_Date" DataSetColumn="Billing_Date" />
+              <Mapping SourceColumn="Amount" DataSetColumn="Amount" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -264,7 +261,7 @@ WHERE        (Patient.Symptoms LIKE Doctores.Symptoms + '%') OR
   <xs:element name="LilypadGardensDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="LilypadGardensDataSet" msprop:Generator_UserDSName="LilypadGardensDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Patient" msprop:Generator_TableClassName="PatientDataTable" msprop:Generator_TableVarName="tablePatient" msprop:Generator_RowChangedName="PatientRowChanged" msprop:Generator_TablePropName="Patient" msprop:Generator_RowDeletingName="PatientRowDeleting" msprop:Generator_RowChangingName="PatientRowChanging" msprop:Generator_RowEvHandlerName="PatientRowChangeEventHandler" msprop:Generator_RowDeletedName="PatientRowDeleted" msprop:Generator_RowClassName="PatientRow" msprop:Generator_UserTableName="Patient" msprop:Generator_RowEvArgName="PatientRowChangeEvent">
+        <xs:element name="Patient" msprop:Generator_TableClassName="PatientDataTable" msprop:Generator_TableVarName="tablePatient" msprop:Generator_TablePropName="Patient" msprop:Generator_RowDeletingName="PatientRowDeleting" msprop:Generator_RowChangingName="PatientRowChanging" msprop:Generator_RowEvHandlerName="PatientRowChangeEventHandler" msprop:Generator_RowDeletedName="PatientRowDeleted" msprop:Generator_UserTableName="Patient" msprop:Generator_RowChangedName="PatientRowChanged" msprop:Generator_RowEvArgName="PatientRowChangeEvent" msprop:Generator_RowClassName="PatientRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="PatientId" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnPatientId" msprop:Generator_ColumnPropNameInRow="PatientId" msprop:Generator_ColumnPropNameInTable="PatientIdColumn" msprop:Generator_UserColumnName="PatientId" type="xs:int" />
@@ -344,7 +341,7 @@ WHERE        (Patient.Symptoms LIKE Doctores.Symptoms + '%') OR
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Doctores" msprop:Generator_TableClassName="DoctoresDataTable" msprop:Generator_TableVarName="tableDoctores" msprop:Generator_TablePropName="Doctores" msprop:Generator_RowDeletingName="DoctoresRowDeleting" msprop:Generator_RowChangingName="DoctoresRowChanging" msprop:Generator_RowEvHandlerName="DoctoresRowChangeEventHandler" msprop:Generator_RowDeletedName="DoctoresRowDeleted" msprop:Generator_UserTableName="Doctores" msprop:Generator_RowChangedName="DoctoresRowChanged" msprop:Generator_RowEvArgName="DoctoresRowChangeEvent" msprop:Generator_RowClassName="DoctoresRow">
+        <xs:element name="Doctores" msprop:Generator_TableClassName="DoctoresDataTable" msprop:Generator_TableVarName="tableDoctores" msprop:Generator_RowChangedName="DoctoresRowChanged" msprop:Generator_TablePropName="Doctores" msprop:Generator_RowDeletingName="DoctoresRowDeleting" msprop:Generator_RowChangingName="DoctoresRowChanging" msprop:Generator_RowEvHandlerName="DoctoresRowChangeEventHandler" msprop:Generator_RowDeletedName="DoctoresRowDeleted" msprop:Generator_RowClassName="DoctoresRow" msprop:Generator_UserTableName="Doctores" msprop:Generator_RowEvArgName="DoctoresRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:short" />
@@ -380,44 +377,7 @@ WHERE        (Patient.Symptoms LIKE Doctores.Symptoms + '%') OR
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Billing" msprop:Generator_TableClassName="BillingDataTable" msprop:Generator_TableVarName="tableBilling" msprop:Generator_RowChangedName="BillingRowChanged" msprop:Generator_TablePropName="Billing" msprop:Generator_RowDeletingName="BillingRowDeleting" msprop:Generator_RowChangingName="BillingRowChanging" msprop:Generator_RowEvHandlerName="BillingRowChangeEventHandler" msprop:Generator_RowDeletedName="BillingRowDeleted" msprop:Generator_RowClassName="BillingRow" msprop:Generator_UserTableName="Billing" msprop:Generator_RowEvArgName="BillingRowChangeEvent">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="RegisterationId" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnRegisterationId" msprop:Generator_ColumnPropNameInRow="RegisterationId" msprop:Generator_ColumnPropNameInTable="RegisterationIdColumn" msprop:Generator_UserColumnName="RegisterationId" type="xs:int" />
-              <xs:element name="FullName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnFullName" msprop:Generator_ColumnPropNameInRow="FullName" msprop:Generator_ColumnPropNameInTable="FullNameColumn" msprop:Generator_UserColumnName="FullName" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="103" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Billing_Date" msprop:Generator_ColumnVarNameInTable="columnBilling_Date" msprop:Generator_ColumnPropNameInRow="Billing_Date" msprop:Generator_ColumnPropNameInTable="Billing_DateColumn" msprop:Generator_UserColumnName="Billing_Date" type="xs:dateTime" />
-              <xs:element name="Amount" msprop:Generator_ColumnVarNameInTable="columnAmount" msprop:Generator_ColumnPropNameInRow="Amount" msprop:Generator_ColumnPropNameInTable="AmountColumn" msprop:Generator_UserColumnName="Amount" type="xs:decimal" />
-              <xs:element name="InsuranceName" msprop:Generator_ColumnVarNameInTable="columnInsuranceName" msprop:Generator_ColumnPropNameInRow="InsuranceName" msprop:Generator_ColumnPropNameInTable="InsuranceNameColumn" msprop:Generator_UserColumnName="InsuranceName" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Insurance_MemberID" msprop:Generator_ColumnVarNameInTable="columnInsurance_MemberID" msprop:Generator_ColumnPropNameInRow="Insurance_MemberID" msprop:Generator_ColumnPropNameInTable="Insurance_MemberIDColumn" msprop:Generator_UserColumnName="Insurance_MemberID" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="10" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Insurance_x0020_Address" msprop:Generator_ColumnVarNameInTable="columnInsurance_Address" msprop:Generator_ColumnPropNameInRow="Insurance_Address" msprop:Generator_ColumnPropNameInTable="Insurance_AddressColumn" msprop:Generator_UserColumnName="Insurance Address" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="Registration" msprop:Generator_TableClassName="RegistrationDataTable" msprop:Generator_TableVarName="tableRegistration" msprop:Generator_RowChangedName="RegistrationRowChanged" msprop:Generator_TablePropName="Registration" msprop:Generator_RowDeletingName="RegistrationRowDeleting" msprop:Generator_RowChangingName="RegistrationRowChanging" msprop:Generator_RowEvHandlerName="RegistrationRowChangeEventHandler" msprop:Generator_RowDeletedName="RegistrationRowDeleted" msprop:Generator_RowClassName="RegistrationRow" msprop:Generator_UserTableName="Registration" msprop:Generator_RowEvArgName="RegistrationRowChangeEvent">
+        <xs:element name="Registration" msprop:Generator_TableClassName="RegistrationDataTable" msprop:Generator_TableVarName="tableRegistration" msprop:Generator_TablePropName="Registration" msprop:Generator_RowDeletingName="RegistrationRowDeleting" msprop:Generator_RowChangingName="RegistrationRowChanging" msprop:Generator_RowEvHandlerName="RegistrationRowChangeEventHandler" msprop:Generator_RowDeletedName="RegistrationRowDeleted" msprop:Generator_UserTableName="Registration" msprop:Generator_RowChangedName="RegistrationRowChanged" msprop:Generator_RowEvArgName="RegistrationRowChangeEvent" msprop:Generator_RowClassName="RegistrationRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="PatientId" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnPatientId" msprop:Generator_ColumnPropNameInRow="PatientId" msprop:Generator_ColumnPropNameInTable="PatientIdColumn" msprop:Generator_UserColumnName="PatientId" type="xs:int" />
@@ -447,6 +407,22 @@ WHERE        (Patient.Symptoms LIKE Doctores.Symptoms + '%') OR
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="Billing" msprop:Generator_TableClassName="BillingDataTable" msprop:Generator_TableVarName="tableBilling" msprop:Generator_TablePropName="Billing" msprop:Generator_RowDeletingName="BillingRowDeleting" msprop:Generator_RowChangingName="BillingRowChanging" msprop:Generator_RowEvHandlerName="BillingRowChangeEventHandler" msprop:Generator_RowDeletedName="BillingRowDeleted" msprop:Generator_UserTableName="Billing" msprop:Generator_RowChangedName="BillingRowChanged" msprop:Generator_RowEvArgName="BillingRowChangeEvent" msprop:Generator_RowClassName="BillingRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RegisterationId" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnRegisterationId" msprop:Generator_ColumnPropNameInRow="RegisterationId" msprop:Generator_ColumnPropNameInTable="RegisterationIdColumn" msprop:Generator_UserColumnName="RegisterationId" type="xs:int" />
+              <xs:element name="FullName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnFullName" msprop:Generator_ColumnPropNameInRow="FullName" msprop:Generator_ColumnPropNameInTable="FullNameColumn" msprop:Generator_UserColumnName="FullName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="103" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Billing_Date" msprop:Generator_ColumnVarNameInTable="columnBilling_Date" msprop:Generator_ColumnPropNameInRow="Billing_Date" msprop:Generator_ColumnPropNameInTable="Billing_DateColumn" msprop:Generator_UserColumnName="Billing_Date" type="xs:dateTime" />
+              <xs:element name="Amount" msprop:Generator_ColumnVarNameInTable="columnAmount" msprop:Generator_ColumnPropNameInRow="Amount" msprop:Generator_ColumnPropNameInTable="AmountColumn" msprop:Generator_UserColumnName="Amount" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -457,13 +433,13 @@ WHERE        (Patient.Symptoms LIKE Doctores.Symptoms + '%') OR
       <xs:selector xpath=".//mstns:Doctores" />
       <xs:field xpath="mstns:Id" />
     </xs:unique>
-    <xs:unique name="Billing_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:Billing" />
-      <xs:field xpath="mstns:RegisterationId" />
-    </xs:unique>
     <xs:unique name="Registration_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:Registration" />
       <xs:field xpath="mstns:PatientId" />
+    </xs:unique>
+    <xs:unique name="Billing_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Billing" />
+      <xs:field xpath="mstns:RegisterationId" />
     </xs:unique>
   </xs:element>
 </xs:schema>

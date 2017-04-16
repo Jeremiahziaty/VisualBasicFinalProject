@@ -94,6 +94,12 @@
     <Compile Include="AllPatients.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Billl.Designer.vb">
+      <DependentUpon>Billl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Billl.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Continuing.Designer.vb">
       <DependentUpon>Continuing.vb</DependentUpon>
     </Compile>
@@ -153,6 +159,9 @@
   <ItemGroup>
     <EmbeddedResource Include="AllPatients.resx">
       <DependentUpon>AllPatients.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Billl.resx">
+      <DependentUpon>Billl.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Continuing.resx">
       <DependentUpon>Continuing.vb</DependentUpon>

@@ -15,3 +15,4 @@ C:\Users\jerem\OneDrive\Documents\Visual Studio 2017\Projects\VisualBasicFinalPr
 C:\Users\jerem\OneDrive\Documents\Visual Studio 2017\Projects\VisualBasicFinalProject\VisualBasicFinalProject\obj\Debug\VisualBasicFinalProject.xml
 C:\Users\jerem\OneDrive\Documents\Visual Studio 2017\Projects\VisualBasicFinalProject\VisualBasicFinalProject\obj\Debug\VisualBasicFinalProject.pdb
 C:\Users\jerem\OneDrive\Documents\Visual Studio 2017\Projects\VisualBasicFinalProject\VisualBasicFinalProject\obj\Debug\VisualBasicFinalProject.FindPatient.resources
+C:\Users\jerem\OneDrive\Documents\Visual Studio 2017\Projects\VisualBasicFinalProject\VisualBasicFinalProject\obj\Debug\VisualBasicFinalProject.PatientsLog.resources

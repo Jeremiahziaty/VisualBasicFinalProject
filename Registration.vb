@@ -51,13 +51,14 @@ Public Class Registration
             Continuing.ShowDialog()
         End If
 
-        'Try
-        '    PatientBindingSource.EndEdit()
-        '    PatientTableAdapter.Update(LilypadGardensDataSet.Patient)
-        'Catch ex As Exception
-        '    MessageBox.Show(ex.Message, "Error")
+        ' Try
+        '   PatientBindingSource.EndEdit()
+        '  PatientTableAdapter.Update(LilypadGardensDataSet.Patient)
+        '  Catch ex As Exception
+        '  MessageBox.Show(ex.Message, "Error")
         'End Try
     End Sub
+
 
     Private Sub Registration_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim states As StreamReader

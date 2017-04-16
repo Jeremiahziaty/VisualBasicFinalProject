@@ -32,7 +32,37 @@ Represents a strongly typed in-memory cache of data.
 Represents the strongly named DataTable class.
 </summary>
 </member>
+<member name="T:VisualBasicFinalProject.LilypadGardensDataSet.DoctoresDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:VisualBasicFinalProject.LilypadGardensDataSet.BillingDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:VisualBasicFinalProject.LilypadGardensDataSet.RegistrationDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
 <member name="T:VisualBasicFinalProject.LilypadGardensDataSet.PatientRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:VisualBasicFinalProject.LilypadGardensDataSet.DoctoresRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:VisualBasicFinalProject.LilypadGardensDataSet.BillingRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:VisualBasicFinalProject.LilypadGardensDataSet.RegistrationRow">
 <summary>
 Represents strongly named DataRow class.
 </summary>
@@ -42,7 +72,37 @@ Represents strongly named DataRow class.
 Row event argument class
 </summary>
 </member>
+<member name="T:VisualBasicFinalProject.LilypadGardensDataSet.DoctoresRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:VisualBasicFinalProject.LilypadGardensDataSet.BillingRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:VisualBasicFinalProject.LilypadGardensDataSet.RegistrationRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
 <member name="T:VisualBasicFinalProject.LilypadGardensDataSetTableAdapters.PatientTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:VisualBasicFinalProject.LilypadGardensDataSetTableAdapters.DoctoresTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:VisualBasicFinalProject.LilypadGardensDataSetTableAdapters.BillingTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:VisualBasicFinalProject.LilypadGardensDataSetTableAdapters.RegistrationTableAdapter">
 <summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>

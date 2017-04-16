@@ -57,7 +57,7 @@ Partial Class AllPatients
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(560, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(780, 24)
         Me.MenuStrip1.TabIndex = 12
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -85,7 +85,7 @@ Partial Class AllPatients
         Me.DataGridView1.Location = New System.Drawing.Point(0, 37)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.Size = New System.Drawing.Size(560, 375)
+        Me.DataGridView1.Size = New System.Drawing.Size(780, 375)
         Me.DataGridView1.TabIndex = 13
         '
         'LilypadGardensDataSet
@@ -209,7 +209,7 @@ Partial Class AllPatients
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(560, 410)
+        Me.ClientSize = New System.Drawing.Size(780, 410)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Name = "AllPatients"

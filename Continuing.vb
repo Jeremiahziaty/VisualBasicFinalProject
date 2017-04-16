@@ -13,10 +13,7 @@ Public Class Continuing
         End If
         'Read from File
         txtName.Text = username.ReadLine
-        If chkOther.Checked = True Then
-            txtOther.Enabled = True
-            gbSymptoms.Text = "Other" & txtOther.Text
-        End If
+
 
     End Sub
 
@@ -46,18 +43,18 @@ Public Class Continuing
 
             End If
             If chkRespiratory.Checked = True Then
-                gbSymptoms.Text = "Repiratory"
+            gbSymptoms.Text = "Repiratory Issues"
 
-            End If
+        End If
             If chkSkin.Checked = True Then
-                gbSymptoms.Text = "Skin"
+            gbSymptoms.Text = "Skin Condition"
 
-            End If
+        End If
             If chkSneezing.Checked = True Then
                 gbSymptoms.Text = "Sneezing"
             End If
-            If chkUnary.Checked = True Then
-            gbSymptoms.Text = "unary"
+        If chkUnary.Checked = True Then
+            gbSymptoms.Text = "Bowl/Urnary Complication"
         End If
 
         If Registration.RadFemale.Checked = True Then
@@ -70,6 +67,7 @@ Public Class Continuing
             PatientBindingSource.EndEdit()
             PatientTableAdapter.Update(LilypadGardensDataSet.Patient)
             Me.Close()
+            Registration.Close()
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error")
         End Try
@@ -90,4 +88,14 @@ Public Class Continuing
         'End Try
     End Sub
 
+    Private Sub chkOther_CheckedChanged(sender As Object, e As EventArgs) Handles chkOther.CheckedChanged
+        If chkOther.Checked = True Then
+            txtOther.Enabled = True
+            gbSymptoms.Text = "Other: " & txtOther.Text
+        Else
+            txtOther.Enabled = False
+        End If
+
+
+    End Sub
 End Class

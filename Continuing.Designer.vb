@@ -220,6 +220,7 @@ Partial Class Continuing
         'TableAdapterManager
         '
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.DoctoresTableAdapter = Nothing
         Me.TableAdapterManager.PatientTableAdapter = Me.PatientTableAdapter
         Me.TableAdapterManager.UpdateOrder = VisualBasicFinalProject.LilypadGardensDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
